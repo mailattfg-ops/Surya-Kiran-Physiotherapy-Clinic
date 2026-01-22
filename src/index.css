@@ -12,10 +12,10 @@
     --primary-300: 191 76% 59%;
     --primary-100: 195 100% 95%;
     
-    /* Accent Magenta/Pink - Action & Emphasis */
-    --accent-700: 340 78% 43%;
-    --accent-500: 340 82% 52%;
-    --accent-300: 346 100% 59%;
+    /* Accent - Using Primary Blue for consistency */
+    --accent-700: 199 100% 36%;
+    --accent-500: 195 100% 39%;
+    --accent-300: 191 76% 59%;
     
     /* Semantic tokens */
     --background: 0 0% 100%;
@@ -36,7 +36,7 @@
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
     
-    --accent: 340 82% 52%;
+    --accent: 195 100% 39%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84% 60%;
@@ -54,7 +54,7 @@
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(199 100% 36%) 0%, hsl(195 100% 39%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(340 82% 52%) 0%, hsl(346 100% 59%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(199 100% 36%) 0%, hsl(191 76% 59%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(195 100% 95%) 0%, hsl(0 0% 100%) 100%);
     
     /* Shadows */
@@ -62,7 +62,7 @@
     --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.1), 0 2px 4px -2px hsl(222 47% 11% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.1);
     --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.1);
-    --shadow-accent: 0 4px 14px 0 hsl(340 82% 52% / 0.3);
+    --shadow-accent: 0 4px 14px 0 hsl(199 100% 36% / 0.3);
     --shadow-primary: 0 4px 14px 0 hsl(199 100% 36% / 0.3);
 
     --sidebar-background: 0 0% 98%;
@@ -88,7 +88,7 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
-    --accent: 340 82% 52%;
+    --accent: 195 100% 39%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
