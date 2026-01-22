@@ -10,8 +10,6 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Doctor", path: "/doctor" },
   { name: "Services", path: "/services" },
-  { name: "Conditions", path: "/conditions" },
-  { name: "Reviews", path: "/reviews" },
   { name: "FAQ", path: "/faq" },
   { name: "Contact", path: "/contact" },
 ];
@@ -45,11 +43,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-md py-3"
           : "bg-transparent py-4"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
@@ -72,11 +69,10 @@ export default function Header() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === link.path
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${location.pathname === link.path
                     ? "text-primary-700 bg-primary-100"
                     : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>
@@ -98,7 +94,7 @@ export default function Header() {
             >
               Enquire on WhatsApp
             </Button>
-            
+
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -129,11 +125,10 @@ export default function Header() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                    location.pathname === link.path
+                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === link.path
                       ? "text-primary-700 bg-primary-100"
                       : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -148,11 +143,11 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    
-    <InquiryModal 
-      isOpen={isInquiryOpen} 
-      onClose={() => setIsInquiryOpen(false)} 
-    />
+
+      <InquiryModal
+        isOpen={isInquiryOpen}
+        onClose={() => setIsInquiryOpen(false)}
+      />
     </header>
   );
 }

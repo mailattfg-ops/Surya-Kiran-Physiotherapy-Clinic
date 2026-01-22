@@ -1,35 +1,94 @@
-import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const testimonials = [
   {
-    name: "Rajesh Kumar",
-    condition: "Back Pain Recovery",
+    name: "raghuroopa sri",
+    date: "a year ago",
     rating: 5,
-    text: "I suffered from chronic back pain for years. After just 8 sessions at Surya Kiran, I'm finally pain-free. The doctor's expertise and the caring staff made all the difference.",
-    avatar: "RK",
+    text: "I was suffering from tail bone pain for a long time, after one month of continuous treatment I am sitting properly without pain, thank you",
+    avatar: "R",
+    color: "bg-orange-600"
+  },
+  {
+    name: "HARIPRIYA Kasbe",
+    date: "a year ago",
+    rating: 5,
+    text: "unbearable. I could not sit for even 10 min. I was getting pricking pain in my tailbone which was highly painful & was frustrating me. I could",
+    avatar: "H",
+    color: "bg-red-700"
+  },
+  {
+    name: "Aisha anjum",
+    date: "a year ago",
+    rating: 5,
+    text: "I had tail bone issue since 5 yrs .i couldn't travel for long time .I was having lower back ache too .I was looking for lady dr for my problem.",
+    avatar: "A",
+    color: "bg-gray-500"
+  },
+  {
+    name: "Sathya Viju",
+    date: "a year ago",
+    rating: 5,
+    text: "I was having Tailbone pain for very long time for 8 months. I was not able to travel even in car for 30 minutes even since it was very much",
+    avatar: "S",
+    color: "bg-teal-600"
+  },
+  {
+    name: "Rajesh Kumar",
+    date: "2 months ago",
+    rating: 5,
+    text: "Excellent treatment for back pain. The doctors are very professional and the facility is well equipped.",
+    avatar: "R",
+    color: "bg-blue-600"
   },
   {
     name: "Priya Sharma",
-    condition: "Post-Surgery Rehabilitation",
+    date: "3 months ago",
     rating: 5,
-    text: "The rehabilitation after my knee surgery was exceptional. The personalized treatment plan helped me recover faster than expected. Highly recommend!",
-    avatar: "PS",
-  },
-  {
-    name: "Anand Krishnan",
-    condition: "Sports Injury",
-    rating: 5,
-    text: "As a marathon runner, getting back on track after my ankle injury was crucial. The sports injury program here is world-class. I'm back to running pain-free!",
-    avatar: "AK",
-  },
+    text: "Very happy with the post surgery rehab. Staff is very supportive and knowledgeable.",
+    avatar: "P",
+    color: "bg-purple-600"
+  }
 ];
 
 export default function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerPage(4);
+      } else if (window.innerWidth >= 768) {
+        setItemsPerPage(2);
+      } else {
+        setItemsPerPage(1);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const next = () => {
+    setCurrentIndex((prev) =>
+      prev + 1 > testimonials.length - itemsPerPage ? 0 : prev + 1
+    );
+  };
+
+  const prev = () => {
+    setCurrentIndex((prev) =>
+      prev - 1 < 0 ? testimonials.length - itemsPerPage : prev - 1
+    );
+  };
+
   return (
-    <section className="py-20 bg-surface">
+    <section className="py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -49,70 +108,79 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-background rounded-2xl p-6 border border-border relative"
-            >
-              {/* Quote Icon */}
-              <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center">
-                <Quote className="w-5 h-5 text-primary-foreground" />
-              </div>
-
-              {/* Rating */}
-              <div className="flex gap-1 mb-4 mt-2">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                ))}
-              </div>
-
-              {/* Text */}
-              <p className="text-foreground mb-6 leading-relaxed">
-                "{testimonial.text}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-semibold">
-                    {testimonial.avatar}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-foreground">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.condition}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-primary-700 text-primary-700 hover:bg-primary-100"
-            asChild
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
           >
-            <Link to="/reviews">Read More Reviews</Link>
-          </Button>
-        </motion.div>
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+
+          <button
+            onClick={next}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+
+          {/* Cards Window */}
+          <div className="overflow-hidden py-8 -mx-4 px-4">
+            <motion.div
+              className="flex gap-6"
+              animate={{ x: `-${currentIndex * (100 / itemsPerPage)}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
+                >
+                  <div className="bg-white rounded-2xl p-6 border border-gray-100 relative h-full flex flex-col mt-4">
+                    {/* Quote Icon */}
+                    <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center shadow-md">
+                      <Quote className="w-5 h-5 text-white" />
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex gap-1 mb-4 mt-2 ml-2">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+
+                    {/* Text */}
+                    <p className="text-gray-600 mb-6 leading-relaxed flex-1 italic">
+                      "{testimonial.text}"
+                    </p>
+
+                    {/* Author */}
+                    <div className="flex items-center gap-3 pt-4 border-t border-gray-50">
+                      <div className={`w-12 h-12 rounded-full ${testimonial.color || 'bg-blue-600'} flex items-center justify-center text-white font-semibold text-lg shadow-sm`}>
+                        {testimonial.avatar}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 leading-tight">
+                          {testimonial.name}
+                        </h4>
+                        <span className="text-xs text-gray-500 font-medium">
+                          {testimonial.date}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Dots - keeping simplified logic for now as user just wants style revert */}
+          <div className="flex justify-center gap-2 mt-4">
+            <div className={`w-2 h-2 rounded-full ${currentIndex === 0 ? 'bg-orange-500' : 'bg-gray-300'}`} />
+            <div className={`w-2 h-2 rounded-full ${currentIndex > 0 ? 'bg-orange-500' : 'bg-gray-300'}`} />
+          </div>
+        </div>
       </div>
     </section>
   );

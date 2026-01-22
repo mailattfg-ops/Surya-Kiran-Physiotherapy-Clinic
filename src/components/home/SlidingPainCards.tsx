@@ -43,10 +43,10 @@ export default function SlidingPainCards() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === painConditions.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000); // Auto-slide every 3 seconds
+    }, 2000); // Auto-slide every 2 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -56,19 +56,19 @@ export default function SlidingPainCards() {
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === painConditions.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? painConditions.length - 1 : prevIndex - 1
     );
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -76,7 +76,7 @@ export default function SlidingPainCards() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Comprehensive Physiotherapy Care
@@ -87,7 +87,7 @@ export default function SlidingPainCards() {
         {/* Sliding Cards Container */}
         <div className="relative overflow-hidden">
           <div className="flex items-center justify-center">
-            <div className="relative max-w-6xl w-full">
+            <div className="relative max-w-[90%] w-full">
               {/* Cards Display */}
               <div className="flex justify-center items-center gap-8">
                 {/* Previous Card (partially visible) */}
@@ -228,9 +228,8 @@ export default function SlidingPainCards() {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? "bg-blue-600" : "bg-gray-300"
-              }`}
+              className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+                }`}
             />
           ))}
         </div>
