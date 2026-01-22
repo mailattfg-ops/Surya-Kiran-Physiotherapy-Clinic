@@ -1,10 +1,12 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { Sonner } from "@/components/ui/sonner";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import SportsInjuryRehabilitation from "./pages/SportsInjuryRehabilitation";
+import "./index.css";
 import Doctor from "./pages/Doctor";
 import Services from "./pages/Services";
 import Conditions from "./pages/Conditions";
@@ -24,6 +26,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/sports-injury-rehabilitation" element={<SportsInjuryRehabilitation />} />
           <Route path="/doctor" element={<Doctor />} />
           <Route path="/services" element={<Services />} />
           <Route path="/conditions" element={<Conditions />} />
