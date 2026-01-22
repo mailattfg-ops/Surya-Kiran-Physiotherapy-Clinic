@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X, Phone, MessageSquare } from "lucide-react";
 import { useState } from "react";
-import physioImage1 from "/images/physioapplication.jpg";
-import physioImage2 from "/images/physioapplication2.jpg";
+import physioBackground from "/images/physioapplication.jpg";
+import physioOverlay from "/images/physioapplication2.jpg";
 
 interface InquiryModalProps {
   isOpen: boolean;
@@ -152,29 +152,26 @@ export default function InquiryModal({ isOpen, onClose }: InquiryModalProps) {
             </div>
 
             {/* Right Side - Images */}
-            <div className="lg:w-1/2 relative bg-gray-100">
+            <div className="lg:w-1/2 relative bg-gray-100 p-8">
               <div className="relative h-full min-h-[400px]">
-                {/* Main Image */}
+                {/* Background Image (physioapplication.jpg) */}
                 <motion.img
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
-                  src={physioImage1}
-                  alt="Physiotherapy consultation"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  src={physioBackground}
+                  alt="Physiotherapy background"
+                  className="absolute top-8 left-8 w-3/4 h-3/4 object-cover rounded-2xl shadow-lg"
                 />
                 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                
-                {/* Second Image */}
+                {/* Overlay Image (physioapplication2.jpg) - positioned like X-ray overlapping */}
                 <motion.img
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  src={physioImage2}
-                  alt="Physiotherapy treatment"
-                  className="absolute bottom-4 right-4 w-1/3 h-auto rounded-lg shadow-xl border-4 border-white"
+                  src={physioOverlay}
+                  alt="Physiotherapy overlay"
+                  className="absolute bottom-8 right-8 w-1/2 h-1/2 object-cover rounded-xl shadow-2xl border-4 border-white transform rotate-3"
                 />
               </div>
             </div>
