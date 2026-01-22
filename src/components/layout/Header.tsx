@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import InquiryModal from "../home/InquiryModal";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -23,6 +24,7 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -37,11 +39,8 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const handleWhatsAppClick = () => {
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`,
-      "_blank"
-    );
+  const handleInquiryClick = () => {
+    setIsInquiryOpen(true);
   };
 
   return (
@@ -94,7 +93,7 @@ export default function Header() {
               <span>+91 98765 43210</span>
             </a>
             <Button
-              onClick={handleWhatsAppClick}
+              onClick={handleInquiryClick}
               className="hidden sm:flex gradient-accent text-accent-foreground shadow-accent hover:opacity-90 transition-opacity"
             >
               Enquire on WhatsApp
@@ -140,7 +139,7 @@ export default function Header() {
                 </Link>
               ))}
               <Button
-                onClick={handleWhatsAppClick}
+                onClick={handleInquiryClick}
                 className="mt-4 w-full gradient-accent text-accent-foreground shadow-accent"
               >
                 Enquire on WhatsApp
@@ -149,6 +148,11 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+    
+    <InquiryModal 
+      isOpen={isInquiryOpen} 
+      onClose={() => setIsInquiryOpen(false)} 
+    />
     </header>
   );
 }
