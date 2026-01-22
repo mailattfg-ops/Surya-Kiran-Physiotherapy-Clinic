@@ -47,9 +47,9 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const result = contactSchema.safeParse(formData);
-    
+
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
       result.error.errors.forEach((error) => {
@@ -71,9 +71,9 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, "_blank");
-    
+
     toast.success("Redirecting to WhatsApp...");
-    
+
     // Reset form
     setFormData({ name: "", phone: "", service: "", message: "" });
   };
@@ -103,7 +103,7 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
               <span className="text-primary-700">Our Team</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Have questions or ready to book your appointment? We're here to help. 
+              Have questions or ready to book your appointment? We're here to help.
               Reach out via WhatsApp for the quickest response!
             </p>
           </motion.div>
@@ -177,14 +177,7 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
               </div>
 
               {/* Quick WhatsApp Button */}
-              <Button
-                onClick={handleDirectWhatsApp}
-                size="lg"
-                className="w-full sm:w-auto gradient-accent text-accent-foreground shadow-accent"
-              >
-                <MessageCircle className="mr-2 w-5 h-5" />
-                Quick Enquiry on WhatsApp
-              </Button>
+
 
               {/* Map */}
               <div className="mt-10 rounded-2xl overflow-hidden border border-border">

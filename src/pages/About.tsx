@@ -39,9 +39,7 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 );
 
 export default function About() {
-  const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`, "_blank");
-  };
+
 
   return (
     <Layout>
@@ -61,8 +59,8 @@ export default function About() {
               <span className="text-primary-700">Recovery & Wellness</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              At Surya Kiran Physiotherapy Clinic, we believe everyone deserves to live 
-              a pain-free, active life. With over 10 years of experience and 5000+ patients 
+              At Surya Kiran Physiotherapy Clinic, we believe everyone deserves to live
+              a pain-free, active life. With over 10 years of experience and 5000+ patients
               treated, we're committed to providing exceptional physiotherapy care.
             </p>
           </motion.div>
@@ -81,12 +79,12 @@ export default function About() {
             >
               <h2 className="font-heading text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-primary-foreground/90 leading-relaxed">
-                To provide personalized, evidence-based physiotherapy treatments that 
-                restore mobility, reduce pain, and improve quality of life for every 
+                To provide personalized, evidence-based physiotherapy treatments that
+                restore mobility, reduce pain, and improve quality of life for every
                 patient who walks through our doors.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -95,8 +93,8 @@ export default function About() {
             >
               <h2 className="font-heading text-2xl font-bold mb-4">Our Vision</h2>
               <p className="text-accent-foreground/90 leading-relaxed">
-                To be the most trusted physiotherapy clinic in Bangalore, known for 
-                our clinical excellence, compassionate care, and commitment to 
+                To be the most trusted physiotherapy clinic in Bangalore, known for
+                our clinical excellence, compassionate care, and commitment to
                 patient outcomes.
               </p>
             </motion.div>
@@ -171,12 +169,7 @@ export default function About() {
                   </div>
                 ))}
               </div>
-              <Button
-                onClick={handleWhatsAppClick}
-                className="mt-8 gradient-accent text-accent-foreground shadow-accent"
-              >
-                Book Your First Visit
-              </Button>
+
             </motion.div>
 
             {/* Timeline */}

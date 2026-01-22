@@ -137,7 +137,7 @@ export default function SlidingPainCards() {
                     <p className="text-gray-600 mb-4">
                       {painConditions[currentIndex].description}
                     </p>
-                    <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50" onClick={handleLearnMore}>
+                    <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white" onClick={handleLearnMore}>
                       Learn More
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -213,7 +213,7 @@ export default function SlidingPainCards() {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{condition.title}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{condition.description}</p>
-                <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50" onClick={handleLearnMore}>
+                <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white" onClick={handleLearnMore}>
                   Learn More
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

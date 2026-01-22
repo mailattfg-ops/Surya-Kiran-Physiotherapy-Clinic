@@ -1,31 +1,43 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X, Phone, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import physioBackground from "/images/physioapplication.jpg";
 import physioOverlay from "/images/physioapplication2.jpg";
 
 interface InquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialService?: string;
 }
 
-export default function InquiryModal({ isOpen, onClose }: InquiryModalProps) {
+export default function InquiryModal({ isOpen, onClose, initialService }: InquiryModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    message: ""
+    message: initialService ? `I am interested in ${initialService}` : ""
   });
+
+  // Update message when initialService changes or modal opens
+  useEffect(() => {
+    if (isOpen && initialService) {
+      setFormData(prev => ({ ...prev, message: `I am interested in ${initialService}` }));
+    } else if (isOpen && !initialService) {
+      // Optional: reset if generic inquiry, or keep previous state?
+      // Let's just keep simple behavior: if service provided, overrides.
+      // Actually, React state init only happens once without useEffect.
+    }
+  }, [isOpen, initialService]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const whatsappMessage = encodeURIComponent(
       `New Inquiry Details:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
     );
-    
+
     window.open(`https://wa.me/918848833410?text=${whatsappMessage}`, "_blank");
-    
+
     // Reset form
     setFormData({ name: "", phone: "", message: "" });
     onClose();
@@ -163,7 +175,7 @@ export default function InquiryModal({ isOpen, onClose }: InquiryModalProps) {
                   alt="Physiotherapy background"
                   className="absolute top-8 left-8 w-3/4 h-3/4 object-cover rounded-2xl shadow-lg"
                 />
-                
+
                 {/* Overlay Image (physioapplication2.jpg) - positioned like X-ray overlapping */}
                 <motion.img
                   initial={{ opacity: 0, y: 20 }}

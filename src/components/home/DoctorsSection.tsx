@@ -8,7 +8,7 @@ const doctors = [
     name: "Dr. Sarah Johnson",
     position: "Senior Physiotherapist",
     description: "With over 15 years of experience in sports medicine and rehabilitation, Dr. Johnson specializes in treating complex musculoskeletal conditions.",
-    image: "/images/doctor/doctor1.jpg",
+    image: "/images/doctor/doctor1.jpeg",
     expertise: ["Sports Medicine", "Rehabilitation", "Manual Therapy"]
   },
   {
@@ -16,7 +16,7 @@ const doctors = [
     name: "Dr. Michael Chen",
     position: "Orthopedic Specialist",
     description: "Dr. Chen is a board-certified orthopedic specialist with expertise in joint replacement surgery and minimally invasive procedures for chronic pain.",
-    image: "/images/doctor/doctor2.jpg",
+    image: "/images/doctor/doctor2.jpeg",
     expertise: ["Joint Replacement", "Minimally Invasive Surgery", "Pain Management"]
   },
   {

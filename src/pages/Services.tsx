@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bone, Activity, Brain, Heart, Baby, UserRound, Zap, Hand } from "lucide-react";
+import { useState } from "react";
+import InquiryModal from "@/components/home/InquiryModal";
 
 const services = [
   {
@@ -113,11 +115,12 @@ const services = [
 const WHATSAPP_NUMBER = "919876543210";
 
 export default function Services() {
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
   const handleEnquire = (serviceName: string) => {
-    const message = encodeURIComponent(
-      `Hello, I would like to enquire about ${serviceName} at Surya Kiran Physiotherapy Clinic.`
-    );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    setSelectedService(serviceName);
+    setIsInquiryOpen(true);
   };
 
   return (
@@ -138,7 +141,7 @@ export default function Services() {
               <span className="text-primary-700">Physiotherapy Services</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We offer a wide range of specialized treatments to address your unique needs 
+              We offer a wide range of specialized treatments to address your unique needs
               and help you achieve optimal physical health and wellness.
             </p>
           </motion.div>
@@ -222,6 +225,11 @@ export default function Services() {
           </div>
         </div>
       </section>
+      <InquiryModal
+        isOpen={isInquiryOpen}
+        onClose={() => setIsInquiryOpen(false)}
+        initialService={selectedService}
+      />
     </Layout>
   );
 }
