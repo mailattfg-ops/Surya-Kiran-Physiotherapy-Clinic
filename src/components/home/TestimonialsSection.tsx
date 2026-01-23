@@ -88,14 +88,14 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+    <section className="py-10 md:py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-8"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
             Patient Stories
@@ -113,22 +113,22 @@ export default function TestimonialsSection() {
           {/* Navigation Buttons */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+            className="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 translate-x-0 md:-translate-x-12 z-10 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
+            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-gray-600" />
           </button>
 
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+            className="absolute right-1 md:right-0 top-1/2 -translate-y-1/2 translate-x-0 md:translate-x-12 z-10 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
           >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
+            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-gray-600" />
           </button>
 
           {/* Cards Window */}
-          <div className="overflow-hidden py-8 -mx-4 px-4">
+          <div className="overflow-hidden py-4 -mx-4 px-4">
             <motion.div
-              className="flex gap-6"
+              className="flex gap-0 md:gap-6"
               animate={{ x: `-${currentIndex * (100 / itemsPerPage)}%` }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
@@ -137,14 +137,14 @@ export default function TestimonialsSection() {
                   key={index}
                   className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
                 >
-                  <div className="bg-white rounded-2xl p-6 border border-gray-100 relative h-full flex flex-col mt-4">
+                  <div className="bg-white rounded-2xl px-8 py-8 md:p-8 border border-gray-100 relative h-full flex flex-col mt-4">
                     {/* Quote Icon */}
-                    <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center shadow-md">
-                      <Quote className="w-5 h-5 text-white" />
+                    <div className="absolute top-6 left-6 w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center shadow-md z-10">
+                      <Quote className="w-4 h-4 text-white" />
                     </div>
 
                     {/* Rating */}
-                    <div className="flex gap-1 mb-4 mt-2 ml-2">
+                    <div className="flex gap-1 mb-4 mt-2 ml-10">
                       {Array.from({ length: testimonial.rating }).map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                       ))}

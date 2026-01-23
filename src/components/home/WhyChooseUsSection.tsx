@@ -36,7 +36,7 @@ const features = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-10 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -53,8 +53,8 @@ export default function WhyChooseUsSection() {
               <span className="text-primary-700">Top Priority</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              At Surya Kiran Physiotherapy Clinic, we combine clinical expertise with 
-              genuine compassion. Our team is dedicated to helping you overcome pain, 
+              At Surya Kiran Physiotherapy Clinic, we combine clinical expertise with
+              genuine compassion. Our team is dedicated to helping you overcome pain,
               restore function, and return to the activities you love.
             </p>
 
@@ -102,7 +102,7 @@ export default function WhyChooseUsSection() {
                 <span className="font-heading font-bold text-4xl">10+</span>
                 <p className="text-primary-foreground/80 mt-1">Years Experience</p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -113,7 +113,7 @@ export default function WhyChooseUsSection() {
                 <span className="font-heading font-bold text-4xl">5000+</span>
                 <p className="text-accent-foreground/80 mt-1">Happy Patients</p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -124,7 +124,7 @@ export default function WhyChooseUsSection() {
                 <span className="font-heading font-bold text-4xl text-primary-700">95%</span>
                 <p className="text-muted-foreground mt-1">Success Rate</p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}

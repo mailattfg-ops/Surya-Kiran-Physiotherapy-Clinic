@@ -44,15 +44,15 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-md py-3"
-          : "bg-transparent py-4"
+        ? "bg-background/95 backdrop-blur-md shadow-md py-3"
+        : "bg-transparent py-4"
         }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
               <span className="text-primary-foreground font-heading font-bold text-lg">SK</span>
             </div>
             <div className="hidden sm:block">
@@ -70,8 +70,8 @@ export default function Header() {
                 key={link.path}
                 to={link.path}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${location.pathname === link.path
-                    ? "text-primary-700 bg-primary-100"
-                    : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
+                  ? "text-primary-700 bg-primary-100"
+                  : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
                   }`}
               >
                 {link.name}
@@ -126,8 +126,8 @@ export default function Header() {
                   key={link.path}
                   to={link.path}
                   className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === link.path
-                      ? "text-primary-700 bg-primary-100"
-                      : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
+                    ? "text-primary-700 bg-primary-100"
+                    : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
                     }`}
                 >
                   {link.name}

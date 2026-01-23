@@ -1,61 +1,48 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+
 
 const doctors = [
   {
     id: 1,
-    name: "Dr. Sarah Johnson",
-    position: "Senior Physiotherapist",
-    description: "With over 15 years of experience in sports medicine and rehabilitation, Dr. Johnson specializes in treating complex musculoskeletal conditions.",
+    name: "Dr. William Thompson",
+    position: "BDS, MDS - Periodontology",
+    experience: "15 Years Experience",
     image: "/images/doctor/doctor1.jpeg",
-    expertise: ["Sports Medicine", "Rehabilitation", "Manual Therapy"]
+    ringColor: "border-red-500",
+    ringBg: "bg-red-500"
   },
   {
     id: 2,
-    name: "Dr. Michael Chen",
-    position: "Orthopedic Specialist",
-    description: "Dr. Chen is a board-certified orthopedic specialist with expertise in joint replacement surgery and minimally invasive procedures for chronic pain.",
+    name: "Dr. Evelyn Silva",
+    position: "BDS, MDS - Periodontology",
+    experience: "16 Years Experience",
     image: "/images/doctor/doctor2.jpeg",
-    expertise: ["Joint Replacement", "Minimally Invasive Surgery", "Pain Management"]
+    ringColor: "border-blue-500",
+    ringBg: "bg-blue-500"
   },
   {
     id: 3,
-    name: "Dr. Emily Rodriguez",
-    position: "Neurological Physiotherapist",
-    description: "Specializing in neurological rehabilitation, Dr. Rodriguez helps patients with stroke recovery, spinal cord injuries, and movement disorders.",
+    name: "Dr. Albert Schneider",
+    position: "BDS, MDS - Periodontology",
+    experience: "16 Years Experience",
     image: "/images/doctor/doctor3.webp",
-    expertise: ["Neurological Rehab", "Stroke Recovery", "Movement Disorders"]
+    ringColor: "border-green-500",
+    ringBg: "bg-green-500"
   },
   {
     id: 4,
-    name: "Dr. James Wilson",
-    position: "Pediatric Physiotherapist",
-    description: "Dr. Wilson specializes in pediatric physiotherapy, helping children with developmental delays, injuries, and congenital conditions.",
+    name: "Dr. Kenneth Ward",
+    position: "BDS, MDS - Periodontology",
+    experience: "16 Years Experience",
     image: "/images/doctor/doctor4.jpg",
-    expertise: ["Pediatric Care", "Developmental Therapy", "Child Rehabilitation"]
-  },
-  {
-    id: 5,
-    name: "Dr. Maria Garcia",
-    position: "Women's Health Specialist",
-    description: "Dr. Garcia focuses on women's health physiotherapy, providing specialized care for prenatal, postnatal, and pelvic floor conditions.",
-    image: "/images/doctor/doctor5.jpg",
-    expertise: ["Women's Health", "Pelvic Floor", "Prenatal Care"]
-  },
-  {
-    id: 6,
-    name: "Dr. Robert Taylor",
-    position: "Sports Medicine Director",
-    description: "Dr. Taylor leads our sports medicine department with extensive experience in treating professional athletes and sports-related injuries.",
-    image: "/images/doctor/dctor6.jpg",
-    expertise: ["Sports Medicine", "Athletic Training", "Injury Prevention"]
+    ringColor: "border-orange-500",
+    ringBg: "bg-orange-500"
   }
 ];
 
 export default function DoctorsSection() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#E6F2FF] mx-4 md:mx-8 rounded-[3rem]">
+    <section className="py-12 md:py-20 relative overflow-hidden bg-[#E6F2FF] mx-4 md:mx-8 rounded-[3rem]">
       {/* Decorative Background Flower */}
       <div className="absolute top-0 right-0 opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
         <svg width="600" height="600" viewBox="0 0 200 200" fill="currentColor" className="text-blue-600">
@@ -72,7 +59,7 @@ export default function DoctorsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">
             Our Team
@@ -86,49 +73,55 @@ export default function DoctorsSection() {
         </motion.div>
 
         {/* Doctors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {doctors.map((doctor, index) => (
             <motion.div
               key={doctor.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.8, delay: index * 0.2, type: "spring", stiffness: 50 }}
               viewport={{ once: true }}
-              className="group h-full"
+              className={`relative flex flex-col items-center ${index % 2 !== 0 ? 'lg:mt-8' : ''}`}
             >
-              <div
-                className="
-                  bg-white rounded-3xl p-6 h-full flex flex-col max-w-xs mx-auto
-                  transition-all duration-300 hover:shadow-xl hover:-translate-y-1
-                "
-              >
+              {/* String (Dashed Line) */}
+              <div className="absolute -top-16 left-1/2 -translate-x-1/2 h-16 w-px border-l-2 border-dashed border-gray-400 z-0 opacity-60" />
+
+              {/* Card Container */}
+              <div className="relative w-full max-w-[280px] bg-white rounded-3xl shadow-xl overflow-visible pt-12 pb-4 px-6 text-center z-10 group hover:-translate-y-2 transition-transform duration-300">
+
+                {/* Ring Element */}
+                <div className={`absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full border-4 ${doctor.ringColor} bg-white z-20 flex items-center justify-center shadow-sm`}>
+                  <div className={`w-3 h-3 rounded-full ${doctor.ringBg}`} />
+                </div>
+
                 {/* Doctor Image */}
-                <div className="relative h-56 rounded-2xl overflow-hidden mb-6 flex-shrink-0 shadow-md">
+                <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-gray-50 shadow-inner">
                   <img
                     src={doctor.image}
                     alt={doctor.name}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
-                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23dbeafe'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='%233b82f6'%3EDoctor Photo%3C/text%3E%3C/svg%3E";
+                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='%239ca3af'%3EDoctor%3C/text%3E%3C/svg%3E";
                     }}
                   />
                 </div>
 
-                {/* Doctor Info */}
-                <div className="flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900 transition-colors duration-300">
-                    {doctor.name}
-                  </h3>
-                  <p className="font-semibold mb-4 text-sm text-blue-600 transition-colors duration-300">
-                    {doctor.position}
-                  </p>
+                {/* Info */}
+                <h3 className="text-xl font-bold text-gray-800 mb-2 font-heading">
+                  {doctor.name}
+                </h3>
 
-                  <p className="mb-6 text-sm leading-relaxed flex-1 text-gray-600 transition-colors duration-300">
-                    {doctor.description}
-                  </p>
+                {/* Decoration Line */}
+                <div className={`w-8 h-1 ${doctor.ringBg} mx-auto mb-3 rounded-full opacity-50`} />
 
-                  {/* Button Removed */}
-                </div>
+                <p className="text-sm font-semibold text-gray-500 mb-1">
+                  {doctor.position}
+                </p>
+                <p className="text-xs text-gray-400 mb-6">
+                  {doctor.experience}
+                </p>
+
+
               </div>
             </motion.div>
           ))}
