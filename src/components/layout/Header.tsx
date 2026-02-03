@@ -8,13 +8,13 @@ import InquiryModal from "../home/InquiryModal";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Doctor", path: "/doctor" },
+
   { name: "Services", path: "/services" },
   { name: "FAQ", path: "/faq" },
   { name: "Contact", path: "/contact" },
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
 );
@@ -44,22 +44,25 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-background/95 backdrop-blur-md shadow-md py-3"
-        : "bg-transparent py-4"
+        ? "backdrop-blur-md shadow-md py-3"
+        : "backdrop-blur-sm shadow-sm py-4"
         }`}
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.95)"
+      }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
-              <span className="text-primary-foreground font-heading font-bold text-lg">SK</span>
+          <Link to="/" className="flex items-center gap-3">
+            <div className="h-14 w-auto flex-shrink-0">
+              <img src="/logo.jpeg" alt="Surya Kiran Logo" className="h-full w-auto object-contain shadow-sm" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-heading font-bold text-lg text-primary-700 leading-tight">
+              <h1 className="font-heading font-bold text-xl text-primary-700 leading-tight">
                 Surya Kiran
               </h1>
-              <p className="text-xs text-muted-foreground -mt-0.5">Physiotherapy Clinic</p>
+              <p className="text-xs text-muted-foreground/80 font-medium tracking-wide">Physiotherapy Clinic</p>
             </div>
           </Link>
 
@@ -69,9 +72,9 @@ export default function Header() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${location.pathname === link.path
-                  ? "text-primary-700 bg-primary-100"
-                  : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${location.pathname === link.path
+                  ? "text-primary-700 bg-primary-50 shadow-sm"
+                  : "text-gray-600 hover:text-primary-700 hover:bg-gray-50"
                   }`}
               >
                 {link.name}
@@ -82,15 +85,18 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+919876543210"
-              className="hidden md:flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors"
+              href="tel:+919048030977"
+              className="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-primary-700 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>+91 98765 43210</span>
+              <span>+91 90480 30977</span>
             </a>
             <Button
               onClick={handleInquiryClick}
-              className="hidden sm:flex gradient-accent text-accent-foreground shadow-accent hover:opacity-90 transition-opacity"
+              className="hidden sm:flex text-white font-semibold shadow-md hover:opacity-90 transition-all hover:scale-105"
+              style={{
+                background: "linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(40 100% 50%) 100%)"
+              }}
             >
               Enquire on WhatsApp
             </Button>

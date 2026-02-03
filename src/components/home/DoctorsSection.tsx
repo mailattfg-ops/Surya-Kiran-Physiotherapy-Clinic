@@ -4,37 +4,37 @@ import { motion } from "framer-motion";
 const doctors = [
   {
     id: 1,
-    name: "Dr. William Thompson",
-    position: "BDS, MDS - Periodontology",
-    experience: "15 Years Experience",
-    image: "/images/doctor/doctor1.jpeg",
+    name: "Dr. Reeja John PT",
+    position: "BPT, Physiotherapist",
+    experience: "6 Years Experience",
+    image: "/images/doctor/doctorOne_11zon.webp",
     ringColor: "border-red-500",
     ringBg: "bg-red-500"
   },
   {
     id: 2,
-    name: "Dr. Evelyn Silva",
-    position: "BDS, MDS - Periodontology",
-    experience: "16 Years Experience",
-    image: "/images/doctor/doctor2.jpeg",
+    name: "Dr. M S Jassera Begam PT",
+    position: "BPT",
+    experience: "3 Years Experience",
+    image: "/images/doctor/doctorTwo_11zon.webp",
     ringColor: "border-blue-500",
     ringBg: "bg-blue-500"
   },
   {
     id: 3,
-    name: "Dr. Albert Schneider",
-    position: "BDS, MDS - Periodontology",
-    experience: "16 Years Experience",
-    image: "/images/doctor/doctor3.webp",
+    name: "Dr. J. S. Evangeline Nissy PT",
+    position: "BPT, Physiotherapist",
+    experience: "2.5 Years Experience",
+    image: "/images/doctor/doctorThree.webp",
     ringColor: "border-green-500",
     ringBg: "bg-green-500"
   },
   {
     id: 4,
-    name: "Dr. Kenneth Ward",
-    position: "BDS, MDS - Periodontology",
-    experience: "16 Years Experience",
-    image: "/images/doctor/doctor4.jpg",
+    name: "Dr. K R Krishna PT",
+    position: "Chief Physiotherapist, BPT, DNT",
+    experience: "22 Years Experience",
+    image: "/images/doctor/doctorFour.webp",
     ringColor: "border-orange-500",
     ringBg: "bg-orange-500"
   }
@@ -99,7 +99,7 @@ export default function DoctorsSection() {
                   <img
                     src={doctor.image}
                     alt={doctor.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
                       e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='20' fill='%239ca3af'%3EDoctor%3C/text%3E%3C/svg%3E";
                     }}

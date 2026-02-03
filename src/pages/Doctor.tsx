@@ -27,7 +27,7 @@ const specializations = [
   "Geriatric Care",
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to book a consultation with the doctor at Surya Kiran Physiotherapy Clinic."
 );
@@ -63,7 +63,7 @@ export default function Doctor() {
       </section>
 
       {/* Doctor Profile */}
-      <section className="py-20 bg-background">
+      <section className=" bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Image */}
@@ -168,7 +168,7 @@ export default function Doctor() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-surface">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

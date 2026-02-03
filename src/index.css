@@ -17,6 +17,11 @@
     --accent-500: 195 100% 39%;
     --accent-300: 191 76% 59%;
     
+    /* Gold - Accent for Logo Match */
+    --gold-700: 45 93% 40%;
+    --gold-500: 45 93% 47%;
+    --gold-300: 45 93% 60%;
+    
     /* Semantic tokens */
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
@@ -55,6 +60,7 @@
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(199 100% 36%) 0%, hsl(195 100% 39%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(199 100% 36%) 0%, hsl(191 76% 59%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(40 100% 50%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(195 100% 95%) 0%, hsl(0 0% 100%) 100%);
     
     /* Shadows */
@@ -134,6 +140,10 @@
   
   .gradient-hero {
     background: var(--gradient-hero);
+  }
+
+  .gradient-gold {
+    background: var(--gradient-gold);
   }
   
   .shadow-accent {

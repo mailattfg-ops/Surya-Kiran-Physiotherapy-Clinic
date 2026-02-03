@@ -55,7 +55,7 @@ const testimonials = [
   },
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to book an appointment at Surya Kiran Physiotherapy Clinic."
 );

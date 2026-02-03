@@ -6,52 +6,52 @@ import { Link } from "react-router-dom";
 
 const testimonials = [
   {
-    name: "raghuroopa sri",
-    date: "a year ago",
+    name: "Suresh Menon",
+    date: "2 months ago",
     rating: 5,
-    text: "I was suffering from tail bone pain for a long time, after one month of continuous treatment I am sitting properly without pain, thank you",
-    avatar: "R",
+    text: "I had severe back pain for months because of my IT job. After 3 weeks of treatment here, I'm completely relieved. Dr. Krishna's diagnosis was spot on.",
+    avatar: "S",
     color: "bg-orange-600"
   },
   {
-    name: "HARIPRIYA Kasbe",
-    date: "a year ago",
+    name: "Lakshmi Nair",
+    date: "1 month ago",
     rating: 5,
-    text: "unbearable. I could not sit for even 10 min. I was getting pricking pain in my tailbone which was highly painful & was frustrating me. I could",
-    avatar: "H",
+    text: "Post-surgery physiotherapy was excellent. The Lady doctors were very supportive and made me feel comfortable throughout the sessions. The facility is very clean.",
+    avatar: "L",
     color: "bg-red-700"
   },
   {
-    name: "Aisha anjum",
-    date: "a year ago",
+    name: "Abdul Khader",
+    date: "3 weeks ago",
     rating: 5,
-    text: "I had tail bone issue since 5 yrs .i couldn't travel for long time .I was having lower back ache too .I was looking for lady dr for my problem.",
+    text: "നടുവേദന കാരണം എനിക്ക് നടക്കാൻ പോലും ബുദ്ധിമുട്ടായിരുന്നു. ഇവിടുത്തെ ചികിത്സയ്ക്ക് ശേഷം ഇപ്പോൾ നല്ല മാറ്റമുണ്ട്. ഡോക്ടർമാരും സ്റ്റാഫും വളരെ നല്ല പെരുമാറ്റമാണ്.",
     avatar: "A",
-    color: "bg-gray-500"
-  },
-  {
-    name: "Sathya Viju",
-    date: "a year ago",
-    rating: 5,
-    text: "I was having Tailbone pain for very long time for 8 months. I was not able to travel even in car for 30 minutes even since it was very much",
-    avatar: "S",
     color: "bg-teal-600"
   },
   {
-    name: "Rajesh Kumar",
-    date: "2 months ago",
+    name: "Thomas George",
+    date: "5 months ago",
     rating: 5,
-    text: "Excellent treatment for back pain. The doctors are very professional and the facility is well equipped.",
-    avatar: "R",
+    text: "Best physiotherapy centre in Kerala. I visited for my father's stroke rehabilitation. The improvement we saw in just one month is miraculous.",
+    avatar: "T",
     color: "bg-blue-600"
   },
   {
-    name: "Priya Sharma",
-    date: "3 months ago",
+    name: "Deepa Pillai",
+    date: "2 months ago",
     rating: 5,
-    text: "Very happy with the post surgery rehab. Staff is very supportive and knowledgeable.",
-    avatar: "P",
-    color: "bg-purple-600"
+    text: "I visited for my neck pain. Dr. Reeja was very patient in listening to my issues and the treatment was very effective. Highly recommended.",
+    avatar: "D",
+    color: "bg-pink-600"
+  },
+  {
+    name: "Mohammed Fayaz",
+    date: "4 months ago",
+    rating: 5,
+    text: "Clean environment and modern equipment. The approach to treatment is very scientific. Helped me recover from my sports injury quickly.",
+    avatar: "M",
+    color: "bg-indigo-600"
   }
 ];
 

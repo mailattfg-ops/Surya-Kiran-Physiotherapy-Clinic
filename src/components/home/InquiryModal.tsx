@@ -36,7 +36,7 @@ export default function InquiryModal({ isOpen, onClose, initialService }: Inquir
       `New Inquiry Details:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
     );
 
-    window.open(`https://wa.me/918848833410?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/919048030977?text=${whatsappMessage}`, "_blank");
 
     // Reset form
     setFormData({ name: "", phone: "", message: "" });
@@ -50,10 +50,22 @@ export default function InquiryModal({ isOpen, onClose, initialService }: Inquir
     });
   };
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div className="fixed inset-0 z-[9999] overflow-y-auto">
       <div className="flex min-h-screen items-center justify-center p-4">
         {/* Backdrop */}
         <motion.div
@@ -154,10 +166,10 @@ export default function InquiryModal({ isOpen, onClose, initialService }: Inquir
                   </Button>
                 </form>
 
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <div className="mt-2 p-4 bg-blue-50 rounded-lg">
                   <div className="flex items-center gap-2 text-sm text-blue-800">
                     <Phone className="w-4 h-4" />
-                    <span>Or call us directly at: +91 88488 33410</span>
+                    <span>Or call us directly at: +91 90480 30977</span>
                   </div>
                 </div>
               </motion.div>

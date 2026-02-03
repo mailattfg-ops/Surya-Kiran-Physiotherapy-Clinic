@@ -33,7 +33,7 @@ const milestones = [
   { year: "2024", title: "5000+ Patients", description: "Continuing to grow and serve our community" },
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to learn more about Surya Kiran Physiotherapy Clinic."
 );
@@ -68,7 +68,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-background">
+      <section className="bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
@@ -103,7 +103,7 @@ export default function About() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-surface">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

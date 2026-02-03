@@ -52,6 +52,12 @@ export default {
           500: "hsl(var(--accent-500))",
           300: "hsl(var(--accent-300))",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold-500))",
+          500: "hsl(var(--gold-500))",
+          700: "hsl(var(--gold-700))",
+          300: "hsl(var(--gold-300))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

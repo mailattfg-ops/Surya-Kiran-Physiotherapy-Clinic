@@ -47,7 +47,7 @@ const faqs = [
   },
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I have a question about physiotherapy services at Surya Kiran Clinic."
 );
@@ -72,10 +72,15 @@ export default function FAQ() {
             </span>
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Frequently Asked{" "}
-              <span className="text-primary-700">Questions</span>
+              <span className="text-primary-700 relative inline-block">
+                Questions
+                <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
+                </svg>
+              </span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Find answers to common questions about our physiotherapy services, 
+              Find answers to common questions about our physiotherapy services,
               treatments, and what to expect during your visit.
             </p>
           </motion.div>
@@ -120,7 +125,7 @@ export default function FAQ() {
                 Still Have Questions?
               </h2>
               <p className="text-primary-foreground/80 mb-6">
-                Can't find the answer you're looking for? Reach out to us on WhatsApp 
+                Can't find the answer you're looking for? Reach out to us on WhatsApp
                 and we'll be happy to help!
               </p>
               <Button

@@ -116,12 +116,8 @@ export default function AboutSection() {
               </h4>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Friday</span>
-                  <span className="font-semibold text-gray-900">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Saturday</span>
-                  <span className="font-semibold text-gray-900">9:00 AM - 2:00 PM</span>
+                  <span className="text-gray-600">Monday - Saturday</span>
+                  <span className="font-semibold text-gray-900">8:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Sunday</span>

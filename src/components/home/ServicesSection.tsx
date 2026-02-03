@@ -1,46 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Activity, Brain, Bone, Heart, Baby, UserRound } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const services = [
-  {
-    icon: Bone,
-    title: "Back Pain Treatment",
-    description: "Advanced techniques to relieve chronic and acute back pain, improving spinal health and mobility.",
-    color: "primary",
-  },
-  {
-    icon: Activity,
-    title: "Sports Injury Rehabilitation",
-    description: "Specialized recovery programs for athletes to restore strength, flexibility, and performance.",
-    color: "accent",
-  },
-  {
-    icon: Brain,
-    title: "Neurological Physiotherapy",
-    description: "Expert care for stroke recovery, Parkinson's, and other neurological conditions.",
-    color: "primary",
-  },
-  {
-    icon: Heart,
-    title: "Post-Surgery Recovery",
-    description: "Comprehensive rehabilitation programs to help you recover faster after surgery.",
-    color: "accent",
-  },
-  {
-    icon: UserRound,
-    title: "Geriatric Physiotherapy",
-    description: "Gentle, effective treatments tailored for elderly patients to maintain independence.",
-    color: "primary",
-  },
-  {
-    icon: Baby,
-    title: "Pediatric Physiotherapy",
-    description: "Child-friendly therapy for developmental delays and pediatric conditions.",
-    color: "accent",
-  },
-];
+import { services as allServices } from "@/data/services";
+
+const services = allServices.slice(0, 6).map((service, index) => ({
+  ...service,
+  color: index % 2 === 0 ? "primary" : "accent",
+}));
 
 export default function ServicesSection() {
   return (

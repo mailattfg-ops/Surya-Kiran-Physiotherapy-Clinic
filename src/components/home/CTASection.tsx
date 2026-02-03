@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to book an appointment at Surya Kiran Physiotherapy Clinic."
 );
@@ -57,7 +57,7 @@ export default function CTASection() {
                 className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-base px-8 py-6"
                 asChild
               >
-                <a href="tel:+919876543210">
+                <a href="tel:+919048030977">
                   <Phone className="mr-2 w-5 h-5" />
                   Call Us Now
                 </a>
@@ -100,8 +100,7 @@ export default function CTASection() {
                 Phone Number
               </h3>
               <p className="text-primary-foreground/70 text-sm">
-                +91 98765 43210<br />
-                +91 98765 43211
+                +91 90480 30977
               </p>
             </div>
 
