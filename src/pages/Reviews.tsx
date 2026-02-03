@@ -83,7 +83,7 @@ export default function Reviews() {
               <span className="text-primary-700">Recovery & Hope</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Read how our patients overcame pain and regained their quality of life 
+              Read how our patients overcame pain and regained their quality of life
               with personalized physiotherapy care at Surya Kiran Clinic.
             </p>
           </motion.div>
@@ -107,7 +107,7 @@ export default function Reviews() {
               <p className="text-primary-foreground/70 mt-1">Success Rate</p>
             </div>
             <div>
-              <span className="font-heading font-bold text-4xl text-primary-foreground">10+</span>
+              <span className="font-heading font-bold text-4xl text-primary-foreground">20+</span>
               <p className="text-primary-foreground/70 mt-1">Years Experience</p>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function Reviews() {
               Ready to Start Your Recovery Journey?
             </h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Join thousands of patients who have transformed their lives with our expert care. 
+              Join thousands of patients who have transformed their lives with our expert care.
               Book your consultation today!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

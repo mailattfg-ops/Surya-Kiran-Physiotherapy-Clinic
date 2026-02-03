@@ -5,7 +5,7 @@ const features = [
   {
     icon: Award,
     title: "Expert Professionals",
-    description: "Qualified physiotherapists with 10+ years of experience and advanced certifications.",
+    description: "Qualified physiotherapists with 20+ years of experience and advanced certifications.",
   },
   {
     icon: Heart,
@@ -99,7 +99,7 @@ export default function WhyChooseUsSection() {
                 transition={{ delay: 0.2 }}
                 className="bg-primary-700 text-primary-foreground rounded-2xl p-6 text-center"
               >
-                <span className="font-heading font-bold text-4xl">10+</span>
+                <span className="font-heading font-bold text-4xl">20+</span>
                 <p className="text-primary-foreground/80 mt-1">Years Experience</p>
               </motion.div>
 

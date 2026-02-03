@@ -27,10 +27,12 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2014", title: "Clinic Founded", description: "Started with a vision to provide quality physiotherapy care" },
-  { year: "2016", title: "1000 Patients", description: "Milestone of treating 1000+ happy patients" },
-  { year: "2019", title: "Expanded Facilities", description: "Added advanced equipment and treatment rooms" },
-  { year: "2024", title: "5000+ Patients", description: "Continuing to grow and serve our community" },
+  { year: "2006", title: "Started at Anchal", description: "The beginning of our journey in physiotherapy care" },
+  { year: "2007", title: "Started at Kadakkal", description: "Expanded our services to reach more patients" },
+  { year: "2009", title: "1000 Patients", description: "Reached a milestone of treating 1000 patients" },
+  { year: "2017", title: "Ladies Fitness Center", description: "Launched a specialized fitness center for women" },
+  { year: "2022", title: "3000 Patients", description: "Growing community trust with 3000 patients treated" },
+  { year: "2026", title: "5000+ Patients", description: "Continuing our legacy with over 5000 happy patients" },
 ];
 
 const WHATSAPP_NUMBER = "919048030977";
@@ -60,7 +62,7 @@ export default function About() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               At Surya Kiran Physiotherapy Clinic, we believe everyone deserves to live
-              a pain-free, active life. With over 10 years of experience and 5000+ patients
+              a pain-free, active life. With over 20 years of experience and 5000+ patients
               treated, we're committed to providing exceptional physiotherapy care.
             </p>
           </motion.div>
