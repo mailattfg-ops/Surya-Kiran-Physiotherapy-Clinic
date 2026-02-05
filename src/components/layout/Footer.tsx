@@ -11,14 +11,13 @@ const services = allServices.slice(0, 6).map(s => ({
 const quickLinks = [
   { name: "About Us", path: "/about" },
   { name: "Our Services", path: "/services" },
-  { name: "Success Stories", path: "/reviews" }, // Changed name for premium feel
   { name: "FAQ", path: "/faq" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Contact Us", path: "/#contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f172a] text-white pt-20 pb-10 relative overflow-hidden">
+    <footer className="bg-black text-white pt-20 pb-10 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-50"></div>
 
@@ -32,13 +31,12 @@ export default function Footer() {
                 <img src="/logo.jpeg" alt="Surya Kiran Logo" className="h-full w-full object-contain" />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-2xl tracking-tight text-white">Surya Kiran</h3>
-                <p className="text-xs text-indigo-200 uppercase tracking-widest font-medium">Physiotherapy Clinic</p>
+                <h3 className="font-heading font-bold text-2xl tracking-tight text-white">Suryakiran</h3>
+                <p className="text-xs text-primary-500 uppercase tracking-widest font-medium">Physiotherapy</p>
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm">
-              Restoring mobility and enhancing quality of life through expert physiotherapy care.
-              Your partner in efficient, evidence-based recovery.
+              Back to life- our tagline reflects our commitment to restoring mobility and enhancing quality of life through expert, women-led physiotherapy care.
             </p>
 
             <div className="flex gap-3">
@@ -117,7 +115,7 @@ export default function Footer() {
                   <MapPin className="w-5 h-5 text-primary-400" />
                 </div>
                 <span className="text-slate-400 text-sm leading-relaxed">
-                  Surya Kiran Physiotherapy<br />Pallimukku, Kadakkal, <br />Kollam - 691536
+                  Suryakiran Physiotherapy<br />Pallimukku, Kadakkal, <br />Kollam - 691536
                 </span>
               </li>
               <li className="flex gap-4">
@@ -168,7 +166,7 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm font-medium">
-              © {new Date().getFullYear()} Surya Kiran Physiotherapy. All rights reserved.
+              © {new Date().getFullYear()} Suryakiran Physiotherapy. All rights reserved.
             </p>
             <div className="flex gap-8">
               <Link

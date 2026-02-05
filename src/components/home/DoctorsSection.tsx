@@ -42,10 +42,10 @@ const doctors = [
 
 export default function DoctorsSection() {
   return (
-    <section className="py-12 md:py-20 relative overflow-hidden bg-[#E6F2FF] mx-4 md:mx-8 rounded-[3rem]">
+    <section className="py-12 md:py-20 relative overflow-hidden bg-primary-100 mx-4 md:mx-8 rounded-[3rem]">
       {/* Decorative Background Flower */}
       <div className="absolute top-0 right-0 opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
-        <svg width="600" height="600" viewBox="0 0 200 200" fill="currentColor" className="text-blue-600">
+        <svg width="600" height="600" viewBox="0 0 200 200" fill="currentColor" className="text-primary-600">
           <path d="M100,10 C120,40 150,70 180,80 C150,90 120,120 100,150 C80,120 50,90 20,80 C50,70 80,40 100,10 Z M100,80 C110,95 125,100 135,100 C125,100 110,105 100,120 C90,105 75,100 65,100 C75,100 90,95 100,80 Z" />
           <path d="M100,20 C115,45 140,65 170,75 M100,140 C85,115 60,95 30,85 M30,75 C60,65 115,20 100,20 M170,85 C140,95 115,140 100,140" stroke="currentColor" strokeWidth="1" fill="none" />
           <circle cx="100" cy="100" r="5" />
@@ -61,14 +61,14 @@ export default function DoctorsSection() {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-16"
         >
-          <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">
-            Our Team
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4 tracking-wide shadow-sm">
+            Women-Run & Friendly
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">
-            Meet Our Experts
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 font-heading leading-tight">
+            Meet Our <span className="text-primary-500">Experts</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
-            Dedicated professionals bringing decades of combined experience to your recovery
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Dedicated women professionals bringing decades of combined experience to your recovery.
           </p>
         </motion.div>
 

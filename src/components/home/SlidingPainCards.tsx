@@ -1,233 +1,170 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Activity, Heart, Shield, Sparkles, UserCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-
 import { conditions } from "@/data/conditions";
 
-// Map condition IDs to available images
+// Map condition IDs to icons for a more diverse look
+const iconMap: Record<string, any> = {
+  "back-neck-shoulder-pain": Activity,
+  "sports-injuries": Activity,
+  "work-related-injuries": Shield,
+  "myofascial-pain-syndrome": Sparkles,
+  "repetitive-strain-injuries": Activity,
+  "sciatica-disc-diseases": Shield,
+  "soft-tissue-injuries": Heart,
+  "postural-dysfunction": UserCheck,
+  "arthritic-conditions": Heart,
+  "pre-post-operative-conditions": Shield,
+};
+
 const imageMap: Record<string, string> = {
   "back-neck-shoulder-pain": "/images/pain/Back Pain Treatment.png",
   "sports-injuries": "/images/pain/Sports Injury Rehabilitation.png",
-  "work-related-injuries": "/images/pain/Back Pain Treatment.png",
-  "myofascial-pain-syndrome": "/images/pain/Sports Injury Rehabilitation.png",
-  "repetitive-strain-injuries": "/images/pain/Back Pain Treatment.png",
-  "sciatica-disc-diseases": "/images/pain/Neurological Physiotherapy.png",
-  "soft-tissue-injuries": "/images/pain/Sports Injury Rehabilitation.png",
-  "postural-dysfunction": "/images/pain/Back Pain Treatment.png",
+  "work-related-injuries": "/images/pain/work_related_injuries.webp",
+  "soft-tissue-injuries": "/images/pain/soft_tissue_injury_women.webp",
+  "myofascial-pain-syndrome": "/images/pain/Myofascial-Release-The-Deep-Tissue-Massage-01_11zon.jpg",
+  "sciatica-disc-diseases": "/images/pain/Sciatica & Disc Diseases.webp",
+  "repetitive-strain-injuries": "/images/pain/Sports Physiotherapy.webp",
   "arthritic-conditions": "/images/pain/Geriatric Physiotherapy .png",
-  "pre-post-operative-conditions": "/images/pain/Neurological Physiotherapy.png",
 };
 
-const painConditions = conditions.map((condition) => ({
-  id: condition.id,
-  title: condition.name,
-  image: imageMap[condition.id] || "/images/pain/Back Pain Treatment.png", // Fallback
-  description: condition.description,
-  linkHash: condition.id, // Direct link to condition section
-}));
-
 export default function SlidingPainCards() {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === painConditions.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 4000); // Slower auto-slide for better readability
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleLearnMore = () => {
-    const activeCondition = painConditions[currentIndex];
-    if (activeCondition.linkHash) {
-      navigate(`/services#${activeCondition.linkHash}`);
-    } else {
-      navigate("/services");
-    }
+  const handleLearnMore = (id: string) => {
+    navigate(`/services#${id}`);
   };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === painConditions.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? painConditions.length - 1 : prevIndex - 1
-    );
-  };
-
-  const activeReview = painConditions[currentIndex];
-  const prevIndex = (currentIndex - 1 + painConditions.length) % painConditions.length;
-  const nextIndex = (currentIndex + 1) % painConditions.length;
 
   return (
-    <section className="py-12 md:py-20 bg-background overflow-hidden relative">
-      {/* Background decorations matching Services section */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 -z-10" />
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Soft background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.05)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100/80 text-primary-700 text-sm font-medium mb-4 border border-primary-200">
-            Our Expertise
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Specialized Treatments
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Targeted therapies for a wide range of conditions to help you recover faster and move better.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-2xl"
+          >
+            <span className="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-bold tracking-wider uppercase mb-4 shadow-sm">
+              Our Expertise
+            </span>
+            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+              Specialized Care for <br />
+              <span className="text-primary-500">Faster Recovery</span>
+            </h2>
+            <p className="text-muted-foreground text-lg italic">
+              "Back to life-" with targeted therapies tailored for your unique needs.
+            </p>
+          </motion.div>
 
-        {/* Sliding Cards Container */}
-        <div className="relative">
-          <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-7xl h-[500px] flex items-center justify-center">
-
-              {/* Previous Card */}
-              <motion.div
-                key={`prev-${prevIndex}`}
-                className="absolute left-0 lg:left-12 xl:left-24 hidden md:block w-80 lg:w-96 origin-bottom z-0 opacity-60 blur-[1px] grayscale-[30%] pointer-events-none"
-                initial={{ scale: 0.9, x: -50 }}
-                animate={{ scale: 0.9, x: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="bg-white rounded-2xl shadow-lg border border-border overflow-hidden h-[420px] flex flex-col">
-                  <div className="h-48 overflow-hidden bg-muted">
-                    <img
-                      src={painConditions[prevIndex].image}
-                      alt={painConditions[prevIndex].title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-heading font-bold text-foreground mb-3 line-clamp-1">
-                      {painConditions[prevIndex].title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm line-clamp-4">
-                      {painConditions[prevIndex].description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Current Card */}
-              <motion.div
-                key={currentIndex}
-                className="relative z-20 w-full max-w-md md:w-[420px]"
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="bg-white rounded-2xl shadow-xl shadow-primary/5 border border-primary-100 overflow-hidden h-auto min-h-[460px] flex flex-col group hover:shadow-2xl transition-all duration-300">
-                  <div className="h-56 overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
-                    <img
-                      src={activeReview.image}
-                      alt={activeReview.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute bottom-4 left-4 z-20">
-                      <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-primary-700 text-xs font-bold uppercase tracking-wider shadow-sm">
-                        Condition
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-8 flex-1 flex flex-col relative bg-gradient-to-b from-white to-surface/50">
-                    <h3 className="text-2xl font-heading font-bold text-foreground mb-3">
-                      {activeReview.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
-                      {activeReview.description}
-                    </p>
-                    <Button
-                      className="w-full gradient-accent text-accent-foreground shadow-md hover:shadow-lg transition-all group/btn"
-                      onClick={handleLearnMore}
-                    >
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Next Card */}
-              <motion.div
-                key={`next-${nextIndex}`}
-                className="absolute right-0 lg:right-12 xl:right-24 hidden md:block w-80 lg:w-96 origin-bottom z-0 opacity-60 blur-[1px] grayscale-[30%] pointer-events-none"
-                initial={{ scale: 0.9, x: 50 }}
-                animate={{ scale: 0.9, x: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="bg-white rounded-2xl shadow-lg border border-border overflow-hidden h-[420px] flex flex-col">
-                  <div className="h-48 overflow-hidden bg-muted">
-                    <img
-                      src={painConditions[nextIndex].image}
-                      alt={painConditions[nextIndex].title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-heading font-bold text-foreground mb-3 line-clamp-1">
-                      {painConditions[nextIndex].title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm line-clamp-4">
-                      {painConditions[nextIndex].description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Navigation Buttons */}
-              <button
-                onClick={handlePrev}
-                className="absolute left-2 md:-left-4 lg:left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white rounded-full shadow-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary-600 hover:scale-110 transition-all duration-300"
-                aria-label="Previous condition"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              <button
-                onClick={handleNext}
-                className="absolute right-2 md:-right-4 lg:right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white rounded-full shadow-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary-600 hover:scale-110 transition-all duration-300"
-                aria-label="Next condition"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Button
+              variant="outline"
+              className="border-primary-200 text-primary-700 hover:bg-primary-50 rounded-full px-8"
+              onClick={() => navigate("/services")}
+            >
+              View All Treatments
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </motion.div>
         </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center mt-12 space-x-2">
-          {painConditions.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "w-8 bg-primary-600" : "w-2 bg-primary-200 hover:bg-primary-300"
-                }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+        {/* Bento Grid layout - Optimized to fill exactly 12 cells (4x3) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[240px] md:grid-flow-dense">
+          {conditions.slice(0, 7).map((condition, index) => {
+            const Icon = iconMap[condition.id] || Activity;
+            const hasImage = !!imageMap[condition.id];
+
+            // Mathematically balanced spans for 7 items in 12 cells
+            const isLarge = index === 0;
+            const isWide = index === 3;
+            const isTall = index === 1;
+
+            let gridClasses = "";
+            if (isLarge) gridClasses = "md:col-span-2 md:row-span-2"; // 4 cells
+            else if (isTall) gridClasses = "md:row-span-2";          // 2 cells
+            else if (index === 2) gridClasses = "md:col-span-1";          // 1 cell
+            else if (isWide) gridClasses = "md:col-span-2";          // 2 cells
+            else if (index === 4) gridClasses = "md:col-span-1";          // 1 cell
+            else if (index === 5) gridClasses = "md:col-span-1";          // 1 cell
+            else if (index === 6) gridClasses = "md:col-span-1";          // 1 cell
+
+            return (
+              <motion.div
+                key={condition.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                onClick={() => handleLearnMore(condition.id)}
+                className={`group relative rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/40 ${gridClasses}`}
+              >
+                {/* Background (Image or Gradient) */}
+                {hasImage ? (
+                  <div className="absolute inset-0 z-0">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                    <img
+                      src={imageMap[condition.id]}
+                      alt={condition.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                ) : (
+                  <div className={`absolute inset-0 z-0 bg-gradient-to-br transition-all duration-500
+                    ${index % 3 === 0 ? 'from-orange-50 to-orange-100' : ''}
+                    ${index % 3 === 1 ? 'from-yellow-50 to-yellow-100' : ''}
+                    ${index % 3 === 2 ? 'from-primary-50 to-primary-100' : ''}
+                  `} />
+                )}
+
+                {/* Content */}
+                <div className={`relative z-20 h-full p-8 flex flex-col justify-end
+                  ${hasImage ? 'text-white' : 'text-foreground'}
+                `}>
+                  {/* Glassmorphism Icon Container - High Visibility */}
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 bg-white/90 backdrop-blur-xl shadow-lg transition-transform group-hover:-translate-y-2 border border-white/50">
+                    <Icon className="w-7 h-7 text-primary-700" />
+                  </div>
+
+                  <h3 className={`font-heading font-bold mb-2 leading-tight drop-shadow-md
+                    ${isLarge ? 'text-3xl' : 'text-xl'}
+                  `}>
+                    {condition.name}
+                  </h3>
+
+                  {(isLarge || isWide || !hasImage) && (
+                    <p className={`text-sm opacity-90 line-clamp-3 mb-4 font-medium drop-shadow-sm
+                      ${hasImage ? 'text-white/90' : 'text-muted-foreground'}
+                    `}>
+                      {condition.description}
+                    </p>
+                  )}
+
+                  <div className="flex items-center text-sm font-bold uppercase tracking-wider gap-2 drop-shadow-sm">
+                    <span className="group-hover:mr-2 transition-all">Details</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                  </div>
+
+                  {/* Subtle Glass Gradient behind text for readability */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 via-black/30 to-transparent -z-10 pointer-events-none rounded-b-3xl" />
+                </div>
+
+                {/* Glass highlight effect on hover */}
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,81 +1,93 @@
 import { motion } from "framer-motion";
 import { Award, Users, Heart, Sparkles, Clock, Shield } from "lucide-react";
 
+// Feature data
 const features = [
   {
     icon: Award,
     title: "Expert Professionals",
-    description: "Qualified physiotherapists with 20+ years of experience and advanced certifications.",
+    description: "20+ years of clinical excellence.",
+    color: "text-blue-600",
+    bgColor: "bg-blue-50"
   },
   {
     icon: Heart,
     title: "Personalized Care",
-    description: "Customized treatment plans designed for your specific condition and recovery goals.",
+    description: "Bespoke plans for your unique healing.",
+    color: "text-rose-600",
+    bgColor: "bg-rose-50"
   },
   {
     icon: Sparkles,
-    title: "Modern Equipment",
-    description: "State-of-the-art physiotherapy equipment for effective and comfortable treatments.",
-  },
-  {
-    icon: Users,
-    title: "Patient-Centered",
-    description: "We listen, understand, and work with you every step of your recovery journey.",
+    title: "Advanced Tech",
+    description: "State-of-the-art results.",
+    color: "text-amber-600",
+    bgColor: "bg-amber-50"
   },
   {
     icon: Clock,
-    title: "Flexible Timing",
-    description: "Convenient appointment slots to fit your busy schedule, including weekends.",
-  },
-  {
-    icon: Shield,
-    title: "Safe Environment",
-    description: "Clean, hygienic clinic with strict safety protocols for your well-being.",
-  },
+    title: "Flexible Scheduling",
+    description: "Weekends included.",
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-50"
+  }
+];
+
+const stats = [
+  { label: "Years Experience", value: "20+", color: "bg-primary-700 text-white" },
+  { label: "Happy Patients", value: "5k+", color: "bg-white text-primary-700 border border-primary-100" },
+  { label: "Success Rate", value: "98%", color: "bg-white text-primary-700 border border-primary-100" },
+  { label: "Specialists", value: "12+", color: "bg-white text-primary-700 border border-primary-100" },
 ];
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-10 md:py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Soft background glow */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary-50/50 rounded-full blur-3xl -z-10" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col md:flex-row gap-16 items-center">
+
+          {/* Left Column: Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex-1"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent-700 text-sm font-medium mb-4">
+            {/* Header Matching 'Our Expertise' */}
+            <span className="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-bold tracking-wider uppercase mb-4 shadow-sm">
               Why Choose Us
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Your Recovery Is Our{" "}
-              <span className="text-primary-700">Top Priority</span>
+            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+              Redefining Care for <br />
+              <span className="text-primary-500">Better Living</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              At Surya Kiran Physiotherapy Clinic, we combine clinical expertise with
-              genuine compassion. Our team is dedicated to helping you overcome pain,
-              restore function, and return to the activities you love.
+            <p className="text-muted-foreground text-lg italic mb-10">
+              "Healing hands, compassionate hearts" - dedicated to your complete recovery.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {features.slice(0, 4).map((feature, index) => (
+            {/* Redesigned Features List - Cleaner, Less Cluttered */}
+            <div className="space-y-6">
+              {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-4"
+                  className="flex items-center gap-4 group p-3 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-100"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-primary-700" />
+                  <div className={`w-14 h-14 rounded-2xl ${feature.bgColor} ${feature.color} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform`}>
+                    <feature.icon className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">
+                    <h3 className="font-heading font-bold text-lg text-foreground group-hover:text-primary-700 transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground font-medium">
                       {feature.description}
                     </p>
                   </div>
@@ -84,63 +96,36 @@ export default function WhyChooseUsSection() {
             </div>
           </motion.div>
 
-          {/* Stats Cards */}
+          {/* Right Column: Stats (Fixed Layout) */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative"
+            transition={{ duration: 0.6 }}
+            className="relative flex-1 w-full max-w-md md:max-w-full"
           >
-            <div className="grid grid-cols-2 gap-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-primary-700 text-primary-foreground rounded-2xl p-6 text-center"
-              >
-                <span className="font-heading font-bold text-4xl">20+</span>
-                <p className="text-primary-foreground/80 mt-1">Years Experience</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="bg-accent rounded-2xl p-6 text-center text-accent-foreground"
-              >
-                <span className="font-heading font-bold text-4xl">5000+</span>
-                <p className="text-accent-foreground/80 mt-1">Happy Patients</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-surface border border-border rounded-2xl p-6 text-center"
-              >
-                <span className="font-heading font-bold text-4xl text-primary-700">95%</span>
-                <p className="text-muted-foreground mt-1">Success Rate</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="bg-surface border border-border rounded-2xl p-6 text-center"
-              >
-                <span className="font-heading font-bold text-4xl text-primary-700">20+</span>
-                <p className="text-muted-foreground mt-1">Treatments Offered</p>
-              </motion.div>
+            {/* Clean Grid Layout - No Overlap */}
+            <div className="grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className={`aspect-square rounded-3xl flex flex-col items-center justify-center text-center p-4 shadow-xl ${stat.color} 
+                  ${index === 1 || index === 3 ? 'mt-8' : ''}`}
+                >
+                  <span className="font-heading font-black text-4xl md:text-5xl mb-1 tracking-tight">
+                    {stat.value}
+                  </span>
+                  <span className="text-sm font-bold uppercase tracking-wide opacity-80">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* Decorative Element */}
-            <div className="absolute -z-10 -top-8 -right-8 w-32 h-32 bg-primary-100 rounded-full blur-2xl opacity-50" />
-            <div className="absolute -z-10 -bottom-8 -left-8 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
+            {/* Decorative blob behind */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent-50/50 rounded-full blur-3xl -z-10" />
           </motion.div>
+
         </div>
       </div>
     </section>

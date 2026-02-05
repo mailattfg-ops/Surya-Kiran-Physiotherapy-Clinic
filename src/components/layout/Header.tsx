@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,22 +8,18 @@ import InquiryModal from "../home/InquiryModal";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-
   { name: "Services", path: "/services" },
   { name: "FAQ", path: "/faq" },
-  { name: "Contact", path: "/contact" },
+  { name: "Contact", path: "/#contact" },
 ];
-
-const WHATSAPP_NUMBER = "919048030977";
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
-);
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +33,35 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Handle scroll to hash if present in URL on load
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (path.includes("#")) {
+      e.preventDefault();
+      const [route, hash] = path.split("#");
+
+      if (location.pathname !== route) {
+        navigate(path);
+      } else {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const handleInquiryClick = () => {
     setIsInquiryOpen(true);
   };
@@ -44,62 +69,60 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "backdrop-blur-md shadow-md py-3"
-        : "backdrop-blur-sm shadow-sm py-4"
+        ? "bg-white/95 backdrop-blur-md shadow-md py-3"
+        : isHome
+          ? "bg-transparent py-6"
+          : "bg-white/95 backdrop-blur-sm shadow-sm py-4"
         }`}
-      style={{
-        backgroundColor: "rgba(255, 255, 255, 0.95)"
-      }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="h-14 w-auto flex-shrink-0">
-              <img src="/logo.jpeg" alt="Surya Kiran Logo" className="h-full w-auto object-contain shadow-sm" />
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-heading font-bold text-xl text-primary-700 leading-tight">
-                Surya Kiran
-              </h1>
-              <p className="text-xs text-muted-foreground/80 font-medium tracking-wide">Physiotherapy Clinic</p>
-            </div>
-          </Link>
+          {/* Left Side: Logo + Nav */}
+          <div className="flex items-center gap-8 md:gap-12">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3">
+              <div className="h-14 w-auto flex-shrink-0">
+                <img src="/logo.jpeg" alt="Surya Kiran Logo" className="h-full w-auto object-contain shadow-sm" />
+              </div>
+              <div className="hidden sm:block">
+                <h1 className={`font-heading font-bold text-xl leading-tight transition-colors ${!isScrolled && isHome ? "text-white" : "text-black"}`}>
+                  Suryakiran
+                </h1>
+                <p className={`text-xs font-medium tracking-wide transition-colors ${!isScrolled && isHome ? "text-white/80" : "text-muted-foreground/80"}`}>
+                  Physiotherapy
+                </p>
+              </div>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${location.pathname === link.path
-                  ? "text-primary-700 bg-primary-50 shadow-sm"
-                  : "text-gray-600 hover:text-primary-700 hover:bg-gray-50"
-                  }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={(e) => handleNavClick(e, link.path)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${location.pathname === link.path && !link.path.includes("#")
+                    ? "text-primary-700 bg-primary-50 shadow-sm" // Active state (unchanged for internal pages)
+                    : !isScrolled && isHome
+                      ? "text-white/90 hover:text-white hover:bg-white/10" // Transparent Home state
+                      : "text-gray-600 hover:text-primary-700 hover:bg-gray-50" // Standard state
+                    }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-          {/* CTA Buttons */}
+          {/* Right Side: CTA (Phone) & Mobile Menu */}
           <div className="flex items-center gap-3">
             <a
               href="tel:+919048030977"
-              className="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-primary-700 transition-colors"
+              className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full bg-black text-white font-semibold shadow-none hover:bg-black/90 transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>+91 90480 30977</span>
             </a>
-            <Button
-              onClick={handleInquiryClick}
-              className="hidden sm:flex text-white font-semibold shadow-md hover:opacity-90 transition-all hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(40 100% 50%) 100%)"
-              }}
-            >
-              Enquire on WhatsApp
-            </Button>
 
             {/* Mobile Menu Button */}
             <button
@@ -131,7 +154,8 @@ export default function Header() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === link.path
+                  onClick={(e) => handleNavClick(e, link.path)}
+                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === link.path && !link.path.includes("#")
                     ? "text-primary-700 bg-primary-100"
                     : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
                     }`}

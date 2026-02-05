@@ -1,7 +1,8 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import AboutSection from "@/components/home/AboutSection";
 import SlidingPainCards from "@/components/home/SlidingPainCards";
+import ContactSection from "@/components/home/ContactSection";
+import DoctorsSection from "@/components/home/DoctorsSection";
 
 
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
@@ -12,12 +13,13 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <AboutSection />
       <SlidingPainCards />
 
 
       <WhyChooseUsSection />
+      <DoctorsSection />
       <TestimonialsSection />
+      <ContactSection />
 
     </Layout>
   );

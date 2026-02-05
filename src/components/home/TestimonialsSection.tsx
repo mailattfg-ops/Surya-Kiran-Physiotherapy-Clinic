@@ -1,185 +1,229 @@
+import { motion } from "framer-motion";
+import { Star, Quote, ChevronLeft, ChevronRight, MessageSquareHeart } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const testimonials = [
   {
     name: "Suresh Menon",
-    date: "2 months ago",
+    role: "IT Professional",
     rating: 5,
-    text: "I had severe back pain for months because of my IT job. After 3 weeks of treatment here, I'm completely relieved. Dr. Krishna's diagnosis was spot on.",
-    avatar: "S",
-    color: "bg-orange-600"
+    text: "I had severe back pain for months because of my IT job. After 3 weeks of treatment here, I'm completely relieved.",
+    initial: "S",
+    gradient: "from-orange-400 to-pink-500"
   },
   {
     name: "Lakshmi Nair",
-    date: "1 month ago",
+    role: "Retired Teacher",
     rating: 5,
-    text: "Post-surgery physiotherapy was excellent. The Lady doctors were very supportive and made me feel comfortable throughout the sessions. The facility is very clean.",
-    avatar: "L",
-    color: "bg-red-700"
+    text: "Post-surgery physiotherapy was excellent. The Lady doctors were very supportive and made me feel comfortable.",
+    initial: "L",
+    gradient: "from-blue-400 to-cyan-500"
   },
   {
     name: "Abdul Khader",
-    date: "3 weeks ago",
+    role: "Business Owner",
     rating: 5,
-    text: "നടുവേദന കാരണം എനിക്ക് നടക്കാൻ പോലും ബുദ്ധിമുട്ടായിരുന്നു. ഇവിടുത്തെ ചികിത്സയ്ക്ക് ശേഷം ഇപ്പോൾ നല്ല മാറ്റമുണ്ട്. ഡോക്ടർമാരും സ്റ്റാഫും വളരെ നല്ല പെരുമാറ്റമാണ്.",
-    avatar: "A",
-    color: "bg-teal-600"
+    text: "നടുവേദന കാരണം എനിക്ക് നടക്കാൻ പോലും ബുദ്ധിമുട്ടായിരുന്നു. ഇവിടുത്തെ ചികിത്സയ്ക്ക് ശേഷം ഇപ്പോൾ നല്ല മാറ്റമുണ്ട്.",
+    initial: "A",
+    gradient: "from-emerald-400 to-teal-500"
   },
   {
     name: "Thomas George",
-    date: "5 months ago",
+    role: "Engineer",
     rating: 5,
-    text: "Best physiotherapy centre in Kerala. I visited for my father's stroke rehabilitation. The improvement we saw in just one month is miraculous.",
-    avatar: "T",
-    color: "bg-blue-600"
+    text: "Best physiotherapy centre in Kerala. The improvement we saw in my father's condition in just one month is miraculous.",
+    initial: "T",
+    gradient: "from-purple-400 to-indigo-500"
   },
   {
     name: "Deepa Pillai",
-    date: "2 months ago",
+    role: "Homemaker",
     rating: 5,
-    text: "I visited for my neck pain. Dr. Reeja was very patient in listening to my issues and the treatment was very effective. Highly recommended.",
-    avatar: "D",
-    color: "bg-pink-600"
+    text: "Dr. Reeja was very patient in listening to my issues and the treatment was very effective. Highly recommended.",
+    initial: "D",
+    gradient: "from-rose-400 to-red-500"
   },
   {
     name: "Mohammed Fayaz",
-    date: "4 months ago",
+    role: "Athlete",
     rating: 5,
-    text: "Clean environment and modern equipment. The approach to treatment is very scientific. Helped me recover from my sports injury quickly.",
-    avatar: "M",
-    color: "bg-indigo-600"
+    text: "Clean environment and modern equipment. The approach to treatment is very scientific. Helped me recover quickly.",
+    initial: "M",
+    gradient: "from-amber-400 to-orange-500"
   }
 ];
 
 export default function TestimonialsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  // Auto-scroll effect
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerPage(4);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerPage(2);
-      } else {
-        setItemsPerPage(1);
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
   }, []);
 
-  const next = () => {
-    setCurrentIndex((prev) =>
-      prev + 1 > testimonials.length - itemsPerPage ? 0 : prev + 1
-    );
-  };
-
-  const prev = () => {
-    setCurrentIndex((prev) =>
-      prev - 1 < 0 ? testimonials.length - itemsPerPage : prev - 1
-    );
-  };
+  const next = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="py-10 md:py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Decorative Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-100/30 rounded-full blur-3xl -z-10 opacity-60" />
+
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-8"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
-            Patient Stories
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            What Our Patients Say
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Real experiences from patients who trusted us with their recovery journey.
-          </p>
-        </motion.div>
-
-        {/* Carousel Container */}
-        <div className="relative max-w-7xl mx-auto">
-          {/* Navigation Buttons */}
-          <button
-            onClick={prev}
-            className="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 translate-x-0 md:-translate-x-12 z-10 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+        {/* Header - Matching Previous Sections */}
+        <div className="text-left mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-bold tracking-wider uppercase mb-4 shadow-sm"
           >
-            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-gray-600" />
-          </button>
-
-          <button
-            onClick={next}
-            className="absolute right-1 md:right-0 top-1/2 -translate-y-1/2 translate-x-0 md:translate-x-12 z-10 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+            Testimonials
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-heading text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight"
           >
-            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-gray-600" />
-          </button>
+            Stories of <br />
+            <span className="text-primary-500 relative inline-block">
+              Recovery
+              <svg className="absolute w-full h-3 -bottom-1 left-0 text-black -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
+              </svg>
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground text-lg max-w-2xl"
+          >
+            Real people, real results. Hear from those who have walked the path to healing with us.
+          </motion.p>
+        </div>
 
-          {/* Cards Window */}
-          <div className="overflow-hidden py-4 -mx-4 px-4">
-            <motion.div
-              className="flex gap-0 md:gap-6"
-              animate={{ x: `-${currentIndex * (100 / itemsPerPage)}%` }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div
+        {/* Modern Testimonial Slider */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Main Card */}
+          <div className="relative h-[400px] md:h-[320px]">
+            {testimonials.map((testimonial, index) => {
+              // Calculate position relative to active index
+              const offset = (index - activeIndex + testimonials.length) % testimonials.length;
+              const isActive = offset === 0;
+              const isNext = offset === 1;
+              const isPrev = offset === testimonials.length - 1;
+
+              let x = "100%";
+              let scale = 0.8;
+              let opacity = 0;
+              let zIndex = 0;
+
+              if (isActive) {
+                x = "0%";
+                scale = 1;
+                opacity = 1;
+                zIndex = 10;
+              } else if (isNext) {
+                x = "50%"; // Shift right
+                scale = 0.85;
+                opacity = 0.4;
+                zIndex = 5;
+              } else if (isPrev) {
+                x = "-50%"; // Shift left
+                scale = 0.85;
+                opacity = 0.4;
+                zIndex = 5;
+              }
+
+              return (
+                <motion.div
                   key={index}
-                  className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
+                  className="absolute top-0 left-0 right-0 w-full md:w-[700px] mx-auto"
+                  initial={false}
+                  animate={{
+                    x: isActive ? "0%" : isNext ? "30%" : isPrev ? "-30%" : "0%", // Simplified movement for stability
+                    scale,
+                    opacity: isActive ? 1 : 0, // Hide non-adjacent cards
+                    zIndex
+                  }}
+                  transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                  style={{ pointerEvents: isActive ? 'auto' : 'none' }}
                 >
-                  <div className="bg-white rounded-2xl px-8 py-8 md:p-8 border border-gray-100 relative h-full flex flex-col mt-4">
-                    {/* Quote Icon */}
-                    <div className="absolute top-6 left-6 w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center shadow-md z-10">
-                      <Quote className="w-4 h-4 text-white" />
+                  <div className={`bg-white rounded-3xl p-8 md:p-10 shadow-2xl border border-border relative overflow-hidden backdrop-blur-sm
+                    ${isActive ? 'ring-2 ring-primary-100' : ''}
+                  `}>
+                    {/* Decorative Quote Mark */}
+                    <div className="absolute top-4 right-8 text-primary-100/50">
+                      <Quote className="w-24 h-24 transform rotate-12" />
                     </div>
 
-                    {/* Rating */}
-                    <div className="flex gap-1 mb-4 mt-2 ml-10">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-
-                    {/* Text */}
-                    <p className="text-gray-600 mb-6 leading-relaxed flex-1 italic">
-                      "{testimonial.text}"
-                    </p>
-
-                    {/* Author */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-gray-50">
-                      <div className={`w-12 h-12 rounded-full ${testimonial.color || 'bg-blue-600'} flex items-center justify-center text-white font-semibold text-lg shadow-sm`}>
-                        {testimonial.avatar}
+                    <div className="flex flex-col md:flex-row gap-8 items-center md:items-start relative z-10">
+                      {/* Avatar Side */}
+                      <div className="flex-shrink-0">
+                        <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${testimonial.gradient} p-1 shadow-lg`}>
+                          <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-2xl font-bold text-gray-700">
+                            {testimonial.initial}
+                          </div>
+                        </div>
+                        <div className="flex justify-center gap-1 mt-3">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-bold text-gray-900 leading-tight">
-                          {testimonial.name}
-                        </h4>
-                        <span className="text-xs text-gray-500 font-medium">
-                          {testimonial.date}
-                        </span>
+
+                      {/* Content Side */}
+                      <div className="text-center md:text-left flex-1">
+                        <p className="text-xl md:text-2xl font-medium text-foreground mb-6 leading-relaxed italic font-heading">
+                          "{testimonial.text}"
+                        </p>
+                        <div>
+                          <h4 className="font-bold text-lg text-foreground">{testimonial.name}</h4>
+                          <p className="text-sm text-primary-600 font-semibold uppercase tracking-wide">{testimonial.role}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
 
-          {/* Dots - keeping simplified logic for now as user just wants style revert */}
-          <div className="flex justify-center gap-2 mt-4">
-            <div className={`w-2 h-2 rounded-full ${currentIndex === 0 ? 'bg-orange-500' : 'bg-gray-300'}`} />
-            <div className={`w-2 h-2 rounded-full ${currentIndex > 0 ? 'bg-orange-500' : 'bg-gray-300'}`} />
+          {/* Controls */}
+          <div className="flex justify-center items-center gap-6 mt-8">
+            <button
+              onClick={prev}
+              className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-foreground hover:bg-primary-50 hover:text-primary-600 transition-all hover:scale-110 active:scale-95"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <div className="flex gap-2">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${idx === activeIndex ? "w-8 bg-primary-500" : "w-2 bg-gray-300 hover:bg-primary-300"
+                    }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={next}
+              className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-foreground hover:bg-primary-50 hover:text-primary-600 transition-all hover:scale-110 active:scale-95"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
+
         </div>
       </div>
     </section>

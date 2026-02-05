@@ -12,7 +12,9 @@ export const services = [
       "Reduced muscle tension",
       "Accelerated recovery"
     ],
-    conditions: ["Myofascial pain", "Trigger points", "Muscle strains", "Chronic pain"]
+    conditions: ["Myofascial pain", "Trigger points", "Muscle strains", "Chronic pain"],
+    category: "Manual Therapy",
+    image: "/images/pain/Dry-Needling_11zon.jpg"
   },
   {
     id: "kinesiology-taping",
@@ -25,7 +27,9 @@ export const services = [
       "Improved circulation",
       "Injury prevention"
     ],
-    conditions: ["Sports injuries", "Joint instability", "Muscle weakness", "Postural issues"]
+    conditions: ["Sports injuries", "Joint instability", "Muscle weakness", "Postural issues"],
+    category: "Specialized Care",
+    image: "/images/pain/Kinesiology Taping.webp"
   },
   {
     id: "cupping-therapy",
@@ -38,7 +42,9 @@ export const services = [
       "Improved circulation",
       "Pain relief"
     ],
-    conditions: ["Back pain", "Neck stiffness", "Muscle tension", "Respiratory issues"]
+    conditions: ["Back pain", "Neck stiffness", "Muscle tension", "Respiratory issues"],
+    category: "Manual Therapy",
+    image: "/images/pain/What-Is-Cupping-Therapy-and-Does-It-Work_11zon.jpg"
   },
   {
     id: "myofascial-release",
@@ -51,7 +57,9 @@ export const services = [
       "Stress relief",
       "Improved posture"
     ],
-    conditions: ["Myofascial pain syndrome", "Fibromyalgia", "Chronic fatigue", "Stiffness"]
+    conditions: ["Myofascial pain syndrome", "Fibromyalgia", "Chronic fatigue", "Stiffness"],
+    category: "Manual Therapy",
+    image: "/images/pain/Myofascial-Release-The-Deep-Tissue-Massage-01_11zon.jpg"
   },
   {
     id: "spinal-manipulation",
@@ -64,7 +72,9 @@ export const services = [
       "Improved nervous system function",
       "Better spinal alignment"
     ],
-    conditions: ["Back pain", "Neck pain", "Joint restrictions", "Headaches"]
+    conditions: ["Back pain", "Neck pain", "Joint restrictions", "Headaches"],
+    category: "Manual Therapy",
+    image: "/images/pain/Back Pain Treatment.png"
   },
   {
     id: "trigger-point-release",
@@ -77,7 +87,9 @@ export const services = [
       "Improved flexibility",
       "Restored muscle function"
     ],
-    conditions: ["Chronic pain", "Muscle knots", "Tension headaches", "Repetitive strain"]
+    conditions: ["Chronic pain", "Muscle knots", "Tension headaches", "Repetitive strain"],
+    category: "Manual Therapy",
+    image: "/images/pain/depositphotos_157562204-stock-photo-female-therapist-doing-osteopathic-spine_11zon.jpg"
   },
   {
     id: "sports-physiotherapy",
@@ -90,7 +102,9 @@ export const services = [
       "Performance enhancement",
       "Strength conditioning"
     ],
-    conditions: ["ACL injuries", "Sprains and strains", "Tendinitis", "Running injuries"]
+    conditions: ["ACL injuries", "Sprains and strains", "Tendinitis", "Running injuries"],
+    category: "Specialized Care",
+    image: "/images/pain/Sports Physiotherapy.webp"
   },
   {
     id: "pediatric-rehabilitation",
@@ -103,7 +117,9 @@ export const services = [
       "Enhanced independence",
       "Family education"
     ],
-    conditions: ["Cerebral palsy", "Developmental delays", "Torticollis", "Genetic disorders"]
+    conditions: ["Cerebral palsy", "Developmental delays", "Torticollis", "Genetic disorders"],
+    category: "Rehabilitation",
+    image: "/images/pain/Pediatric Rehabilitation.webp"
   },
   {
     id: "pre-post-surgical-rehab",
@@ -116,7 +132,9 @@ export const services = [
       "Pain management",
       "Restored function"
     ],
-    conditions: ["Joint replacements", "Ligament repairs", "Spinal surgeries", "Fractures"]
+    conditions: ["Joint replacements", "Ligament repairs", "Spinal surgeries", "Fractures"],
+    category: "Rehabilitation",
+    image: "/images/pain/Pre and Post Surgical Rehab.webp"
   },
   {
     id: "stroke-rehabilitation",
@@ -129,7 +147,9 @@ export const services = [
       "Cognitive support",
       "Functional independence"
     ],
-    conditions: ["Stroke (CVA)", "Hemiplegia", "Balance disorders", "Coordination issues"]
+    conditions: ["Stroke (CVA)", "Hemiplegia", "Balance disorders", "Coordination issues"],
+    category: "Rehabilitation",
+    image: "/images/pain/Stroke Rehabilitation.webp"
   },
   {
     id: "physio-at-home",
@@ -142,6 +162,8 @@ export const services = [
       "Safety for immobile patients",
       "Functional training in home environment"
     ],
-    conditions: ["Post-surgical recovery", "Geriatric care", "Mobility issues", "Chronic conditions"]
-  }
+    conditions: ["Post-surgical recovery", "Geriatric care", "Mobility issues", "Chronic conditions"],
+    category: "Specialized Care",
+    image: "/images/pain/PHYSIO@HOME.webp"
+  },
 ];
