@@ -82,10 +82,11 @@ export default function Services() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6 tracking-wide shadow-sm">
               Our Services
             </span>
-            <h1 className="font-heading text-4xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
               Comprehensive <br />
               <span className="text-primary-500 relative inline-block">
-                Physiotherapy Care
+                <span className="hidden sm:inline">Physiotherapy Care</span>
+                <span className="sm:hidden">Physio Care</span>
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-black -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
                 </svg>

@@ -166,7 +166,8 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm font-medium">
-              © {new Date().getFullYear()} Suryakiran Physiotherapy. All rights reserved.
+              <span className="hidden sm:inline">© {new Date().getFullYear()} Suryakiran Physiotherapy. All rights reserved.</span>
+              <span className="sm:hidden text-xs">© {new Date().getFullYear()} Suryakiran Physiotherapy</span>
             </p>
             <div className="flex gap-8">
               <Link

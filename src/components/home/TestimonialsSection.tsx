@@ -112,7 +112,7 @@ export default function TestimonialsSection() {
         {/* Modern Testimonial Slider */}
         <div className="relative max-w-5xl mx-auto">
           {/* Main Card */}
-          <div className="relative h-[400px] md:h-[320px]">
+          <div className="relative h-[460px] sm:h-[400px] md:h-[320px]">
             {testimonials.map((testimonial, index) => {
               // Calculate position relative to active index
               const offset = (index - activeIndex + testimonials.length) % testimonials.length;
@@ -156,7 +156,7 @@ export default function TestimonialsSection() {
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
                   style={{ pointerEvents: isActive ? 'auto' : 'none' }}
                 >
-                  <div className={`bg-white rounded-3xl p-8 md:p-10 shadow-2xl border border-border relative overflow-hidden backdrop-blur-sm
+                  <div className={`bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-border relative overflow-hidden backdrop-blur-sm
                     ${isActive ? 'ring-2 ring-primary-100' : ''}
                   `}>
                     {/* Decorative Quote Mark */}
@@ -181,7 +181,7 @@ export default function TestimonialsSection() {
 
                       {/* Content Side */}
                       <div className="text-center md:text-left flex-1">
-                        <p className="text-xl md:text-2xl font-medium text-foreground mb-6 leading-relaxed italic font-heading">
+                        <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground mb-6 leading-relaxed italic font-heading">
                           "{testimonial.text}"
                         </p>
                         <div>

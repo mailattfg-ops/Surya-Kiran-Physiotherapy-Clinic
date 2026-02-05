@@ -29,7 +29,7 @@ const specializations = [
 
 const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I would like to book a consultation with the doctor at Surya Kiran Physiotherapy Clinic."
+  "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
 );
 
 export default function Doctor() {
@@ -55,7 +55,7 @@ export default function Doctor() {
               <span className="text-primary-700">Physiotherapist</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With extensive experience and specialized training, our lead physiotherapist 
+              With extensive experience and specialized training, our lead physiotherapist
               is dedicated to helping you achieve optimal recovery.
             </p>
           </motion.div>
@@ -109,9 +109,9 @@ export default function Doctor() {
                   Lead Physiotherapist & Founder
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Dr. Shibu D is a highly experienced physiotherapist with over 10 years of 
-                  clinical practice. His patient-centered approach, combined with expertise 
-                  in manual therapy and evidence-based treatments, has helped thousands of 
+                  Dr. Shibu D is a highly experienced physiotherapist with over 10 years of
+                  clinical practice. His patient-centered approach, combined with expertise
+                  in manual therapy and evidence-based treatments, has helped thousands of
                   patients recover from pain and regain their quality of life.
                 </p>
               </div>

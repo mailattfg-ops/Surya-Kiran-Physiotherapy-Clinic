@@ -49,7 +49,7 @@ const faqs = [
 
 const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I have a question about physiotherapy services at Surya Kiran Clinic."
+  "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
 );
 
 export default function FAQ() {

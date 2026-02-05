@@ -24,8 +24,10 @@ export default function ServicesSection() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
             Our Services
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Comprehensive Physiotherapy Care
+          <h2 className="font-heading text-xl sm:text-4xl font-bold text-foreground mb-4">
+            Comprehensive <br className="sm:hidden" />
+            <span className="hidden sm:inline">Physiotherapy Care</span>
+            <span className="sm:hidden">Physio Care</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             We offer a wide range of specialized treatments to address your unique needs
@@ -45,11 +47,10 @@ export default function ServicesSection() {
               className="group bg-background rounded-2xl p-6 border border-border hover:border-primary-300 hover:shadow-lg transition-all duration-300"
             >
               <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${
-                  service.color === "primary"
-                    ? "bg-primary-100 text-primary-700"
-                    : "bg-accent/10 text-accent"
-                } group-hover:scale-110 transition-transform duration-300`}
+                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${service.color === "primary"
+                  ? "bg-primary-100 text-primary-700"
+                  : "bg-accent/10 text-accent"
+                  } group-hover:scale-110 transition-transform duration-300`}
               >
                 <service.icon className="w-7 h-7" />
               </div>

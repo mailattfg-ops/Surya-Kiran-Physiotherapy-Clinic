@@ -235,7 +235,8 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
                                         className="w-full h-14 text-base font-bold tracking-wide uppercase bg-black text-white shadow-lg hover:bg-black/90 hover:shadow-xl hover:scale-[1.01] rounded-xl transition-all duration-300 group mt-4"
                                     >
                                         <span className="flex items-center justify-center gap-2">
-                                            Book via WhatsApp
+                                            <span className="hidden sm:inline">Book via WhatsApp</span>
+                                            <span className="sm:hidden">Book Now</span>
                                             <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                                         </span>
                                     </Button>

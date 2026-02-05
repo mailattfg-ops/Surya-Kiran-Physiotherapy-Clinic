@@ -4,7 +4,7 @@ import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 
 const WHATSAPP_NUMBER = "919048030977";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I would like to book an appointment at Surya Kiran Physiotherapy Clinic."
+  "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
 );
 
 export default function CTASection() {
@@ -38,7 +38,7 @@ export default function CTASection() {
               Recovery Journey?
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-lg">
-              Don't let pain hold you back. Book your consultation today and take 
+              Don't let pain hold you back. Book your consultation today and take
               the first step towards a healthier, pain-free life.
             </p>
 

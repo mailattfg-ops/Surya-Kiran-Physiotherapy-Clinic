@@ -165,9 +165,10 @@ export default function Header() {
               ))}
               <Button
                 onClick={handleInquiryClick}
-                className="mt-4 w-full gradient-accent text-accent-foreground shadow-accent"
+                className="mt-4 w-full gradient-accent text-accent-foreground shadow-accent font-bold uppercase tracking-wider h-12"
               >
-                Enquire on WhatsApp
+                <span className="hidden sm:inline">Enquire on WhatsApp</span>
+                <span className="sm:hidden">Enquire Now</span>
               </Button>
             </nav>
           </motion.div>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X, Phone, MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
-import physioBackground from "/images/physioapplication.jpg";
+import physioBackground from "/images/pain/physioapplication.jpg";
 import physioOverlay from "/images/physioapplication2.jpg";
 
 interface InquiryModalProps {
@@ -162,9 +162,10 @@ export default function InquiryModal({ isOpen, onClose, initialService }: Inquir
 
                   <Button
                     type="submit"
-                    className="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-4 rounded-lg transition-colors"
+                    className="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-6 rounded-lg transition-colors flex items-center justify-center gap-2"
                   >
-                    Send Inquiry via WhatsApp
+                    <span className="hidden sm:inline">Send Inquiry via WhatsApp</span>
+                    <span className="sm:hidden text-lg">Book Now</span>
                   </Button>
                 </form>
 
