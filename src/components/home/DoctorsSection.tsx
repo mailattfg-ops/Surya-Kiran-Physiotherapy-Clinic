@@ -3,6 +3,15 @@ import { motion } from "framer-motion";
 
 const doctors = [
   {
+    id: 4,
+    name: "Dr. K R Krishna PT",
+    position: "Chief Physiotherapist, BPT, DNT",
+    experience: "22 Years Experience",
+    image: "/images/doctor/doctorFour.webp",
+    ringColor: "border-orange-500",
+    ringBg: "bg-orange-500"
+  },
+  {
     id: 1,
     name: "Dr. Reeja John PT",
     position: "BPT, Physiotherapist",
@@ -28,15 +37,6 @@ const doctors = [
     image: "/images/doctor/doctorThree.webp",
     ringColor: "border-green-500",
     ringBg: "bg-green-500"
-  },
-  {
-    id: 4,
-    name: "Dr. K R Krishna PT",
-    position: "Chief Physiotherapist, BPT, DNT",
-    experience: "22 Years Experience",
-    image: "/images/doctor/doctorFour.webp",
-    ringColor: "border-orange-500",
-    ringBg: "bg-orange-500"
   }
 ];
 

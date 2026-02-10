@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     question: "What makes Surya Kiran Clinic different?",
-    answer: "With over 10 years of experience and 5000+ patients treated, we combine clinical expertise with genuine compassion. Our personalized treatment approach, modern equipment, hygienic environment, and high success rate set us apart. We focus on not just treating symptoms but addressing root causes for lasting recovery."
+    answer: "With over 10 years of experience and 10000+ patients treated, we combine clinical expertise with genuine compassion. Our personalized treatment approach, modern equipment, hygienic environment, and high success rate set us apart. We focus on not just treating symptoms but addressing root causes for lasting recovery."
   },
 ];
 

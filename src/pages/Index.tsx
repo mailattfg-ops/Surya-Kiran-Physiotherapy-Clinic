@@ -7,6 +7,7 @@ import DoctorsSection from "@/components/home/DoctorsSection";
 
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import AssociatesSection from "@/components/home/AssociatesSection";
 
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <WhyChooseUsSection />
       <DoctorsSection />
       <TestimonialsSection />
+      <AssociatesSection />
       <ContactSection />
 
     </Layout>

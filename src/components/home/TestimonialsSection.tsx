@@ -93,9 +93,6 @@ export default function TestimonialsSection() {
             Stories of <br />
             <span className="text-primary-500 relative inline-block">
               Recovery
-              <svg className="absolute w-full h-3 -bottom-1 left-0 text-black -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
-              </svg>
             </span>
           </motion.h2>
           <motion.p

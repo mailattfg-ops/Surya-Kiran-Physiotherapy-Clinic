@@ -35,7 +35,7 @@ const features = [
 
 const stats = [
   { label: "Years Experience", value: "20+", color: "bg-primary-700 text-white" },
-  { label: "Happy Patients", value: "5k+", color: "bg-white text-primary-700 border border-primary-100" },
+  { label: "Happy Patients", value: "10k+", color: "bg-white text-primary-700 border border-primary-100" },
   { label: "Success Rate", value: "98%", color: "bg-white text-primary-700 border border-primary-100" },
   { label: "Specialists", value: "12+", color: "bg-white text-primary-700 border border-primary-100" },
 ];

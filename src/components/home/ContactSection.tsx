@@ -22,7 +22,9 @@ const contactSchema = z.object({
 // Combine services and conditions for the dropdown, sorted alphabetically
 const treatmentOptions = [
     ...servicesData.map(s => s.title),
-    ...conditionsData.map(c => c.name)
+    ...conditionsData.map(c => c.name),
+    "Ladies Fitness Center",
+    "Suryakanthi Naturals"
 ].sort((a, b) => a.localeCompare(b));
 // Remove duplicates if any
 const uniqueTreatmentOptions = Array.from(new Set(treatmentOptions));
@@ -57,7 +59,13 @@ export default function ContactSection() {
                 const isPredefined = uniqueTreatmentOptions.includes(serviceParam);
 
                 if (isPredefined) {
-                    setFormData(prev => ({ ...prev, service: serviceParam }));
+                    setFormData(prev => ({
+                        ...prev,
+                        service: serviceParam,
+                        message: (serviceParam === "Ladies Fitness Center" || serviceParam === "Suryakanthi Naturals")
+                            ? `I am interested in learning more about ${serviceParam}.`
+                            : prev.message
+                    }));
                 } else {
                     // Try to find a close match or set as General Consultation
                     const match = uniqueTreatmentOptions.find(opt => opt.toLowerCase() === serviceParam.toLowerCase());

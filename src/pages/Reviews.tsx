@@ -95,7 +95,7 @@ export default function Reviews() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <span className="font-heading font-bold text-4xl text-primary-foreground">5000+</span>
+              <span className="font-heading font-bold text-4xl text-primary-foreground">10000+</span>
               <p className="text-primary-foreground/70 mt-1">Happy Patients</p>
             </div>
             <div>

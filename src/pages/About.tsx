@@ -31,7 +31,7 @@ const milestones = [
   { year: "2009", title: "1000 Patients", description: "Reached a milestone of treating 1000 patients" },
   { year: "2017", title: "Ladies Fitness Center", description: "Launched a specialized fitness center for women" },
   { year: "2022", title: "3000 Patients", description: "Growing community trust with 3000 patients treated" },
-  { year: "2026", title: "5000+ Patients", description: "Continuing our legacy with over 5000 happy patients" },
+  { year: "2026", title: "10000+ Patients", description: "Continuing our legacy with over 5000 happy patients" },
 ];
 
 export default function About() {
@@ -56,11 +56,14 @@ export default function About() {
               Your Trusted Partner in <br />
               <span className="text-primary-500 relative inline-block">
                 Recovery & Wellness
+                <svg className="absolute w-full h-3 -bottom-1 left-0 text-black -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
+              </svg>
               </span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
               At Surya Kiran Physiotherapy Clinic, we believe everyone deserves to live
-              a pain-free, active life. With over 20 years of experience and 5000+ patients
+              a pain-free, active life. With over 20 years of experience and 10000+ patients
               treated, we're committed to providing exceptional care.
             </p>
           </motion.div>

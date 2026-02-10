@@ -162,7 +162,7 @@ export default function InquiryModal({ isOpen, onClose, initialService }: Inquir
 
                   <Button
                     type="submit"
-                    className="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-[#25D366] hover:bg-[#20bd5c] text-white font-semibold py-6 rounded-lg transition-colors flex items-center justify-center gap-2"
                   >
                     <span className="hidden sm:inline">Send Inquiry via WhatsApp</span>
                     <span className="sm:hidden text-lg">Book Now</span>

@@ -52,13 +52,13 @@ export default function HeroSection() {
               transition={{ delay: 0.2 }}
               className="font-serif italic text-2xl md:text-2xl lg:text-4xl text-primary-500 mb-2 tracking-wide lg:mb-3 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
             >
-              Back to life -
+              Back to life
             </motion.h2>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-5 font-heading tracking-tight drop-shadow-sm">
               Suryakiran <br />
               <span className="text-primary-500">
-                Physiotherapy
+                PHYSIOTHERAPY
               </span>
             </h1>
 
@@ -123,7 +123,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <p className="text-white font-bold text-lg leading-none">
-                    5000+
+                    10000+
                   </p>
                   <p className="text-gray-400 text-sm">
                     Happy Patients

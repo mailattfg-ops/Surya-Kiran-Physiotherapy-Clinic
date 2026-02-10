@@ -89,7 +89,7 @@ export default function Header() {
                   Suryakiran
                 </h1>
                 <p className={`text-xs font-medium tracking-wide transition-colors ${!isScrolled && isHome ? "text-white/80" : "text-muted-foreground/80"}`}>
-                  Physiotherapy
+                  PHYSIOTHERAPY
                 </p>
               </div>
             </Link>
@@ -165,7 +165,7 @@ export default function Header() {
               ))}
               <Button
                 onClick={handleInquiryClick}
-                className="mt-4 w-full gradient-accent text-accent-foreground shadow-accent font-bold uppercase tracking-wider h-12"
+                className="mt-4 w-full bg-[#25D366] hover:bg-[#20bd5c] text-white shadow-[0_4px_14px_0_rgba(37,211,102,0.3)] font-bold uppercase tracking-wider h-12"
               >
                 <span className="hidden sm:inline">Enquire on WhatsApp</span>
                 <span className="sm:hidden">Enquire Now</span>
