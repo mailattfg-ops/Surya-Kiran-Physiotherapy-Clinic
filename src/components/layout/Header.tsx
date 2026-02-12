@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import InquiryModal from "../home/InquiryModal";
+import { CONTACT_INFO } from "@/data/constants";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -16,7 +15,6 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
@@ -62,10 +60,6 @@ export default function Header() {
     }
   };
 
-  const handleInquiryClick = () => {
-    setIsInquiryOpen(true);
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
@@ -86,7 +80,7 @@ export default function Header() {
               </div>
               <div className="hidden sm:block">
                 <h1 className={`font-heading font-bold text-xl leading-tight transition-colors ${!isScrolled && isHome ? "text-white" : "text-black"}`}>
-                  Suryakiran
+                  suryakiran
                 </h1>
                 <p className={`text-xs font-medium tracking-wide transition-colors ${!isScrolled && isHome ? "text-white/80" : "text-muted-foreground/80"}`}>
                   PHYSIOTHERAPY
@@ -117,11 +111,11 @@ export default function Header() {
           {/* Right Side: CTA (Phone) & Mobile Menu */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+919048030977"
+              href={`tel:${CONTACT_INFO.phoneRaw}`}
               className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full bg-black text-white font-semibold shadow-none hover:bg-black/90 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>+91 90480 30977</span>
+              <span>{CONTACT_INFO.phone}</span>
             </a>
 
             {/* Mobile Menu Button */}
@@ -163,22 +157,18 @@ export default function Header() {
                   {link.name}
                 </Link>
               ))}
-              <Button
-                onClick={handleInquiryClick}
-                className="mt-4 w-full bg-[#25D366] hover:bg-[#20bd5c] text-white shadow-[0_4px_14px_0_rgba(37,211,102,0.3)] font-bold uppercase tracking-wider h-12"
+              <a
+                href={`tel:${CONTACT_INFO.phoneRaw}`}
+                className="mt-4 w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white rounded-lg font-bold uppercase tracking-wider h-12 shadow-lg transition-transform active:scale-95"
               >
-                <span className="hidden sm:inline">Enquire on WhatsApp</span>
-                <span className="sm:hidden">Enquire Now</span>
-              </Button>
+                <Phone className="w-5 h-5" />
+                <span>{CONTACT_INFO.phone}</span>
+              </a>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <InquiryModal
-        isOpen={isInquiryOpen}
-        onClose={() => setIsInquiryOpen(false)}
-      />
     </header>
   );
 }

@@ -1,42 +1,17 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Award, Heart, Users, Target, CheckCircle, ArrowRight } from "lucide-react";
+import SEO from "@/components/layout/SEO";
 
-const values = [
-  {
-    icon: Heart,
-    title: "Compassionate Care",
-    description: "We treat every patient with empathy, understanding, and respect.",
-  },
-  {
-    icon: Award,
-    title: "Excellence",
-    description: "We strive for the highest standards in physiotherapy practice.",
-  },
-  {
-    icon: Users,
-    title: "Patient-Centered",
-    description: "Your recovery goals guide everything we do.",
-  },
-  {
-    icon: Target,
-    title: "Results-Driven",
-    description: "We focus on measurable outcomes and lasting recovery.",
-  },
-];
-
-const milestones = [
-  { year: "2006", title: "Started at Anchal", description: "The beginning of our journey in physiotherapy care" },
-  { year: "2007", title: "Started at Kadakkal", description: "Expanded our services to reach more patients" },
-  { year: "2009", title: "1000 Patients", description: "Reached a milestone of treating 1000 patients" },
-  { year: "2017", title: "Ladies Fitness Center", description: "Launched a specialized fitness center for women" },
-  { year: "2022", title: "3000 Patients", description: "Growing community trust with 3000 patients treated" },
-  { year: "2026", title: "10000+ Patients", description: "Continuing our legacy with over 5000 happy patients" },
-];
+import { MILESTONES, CORE_VALUES } from "@/data/constants";
 
 export default function About() {
   return (
     <Layout>
+      <SEO
+        title="About Us | Our Legacy of Healing"
+        description="Learn about Surya Kiran Physiotherapy's 20-year journey of providing compassionate care and excellence in physiotherapy services in Kerala."
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-background relative overflow-hidden">
         {/* Abstract Background Elements */}
@@ -57,8 +32,8 @@ export default function About() {
               <span className="text-primary-500 relative inline-block">
                 Recovery & Wellness
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-black -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
-              </svg>
+                  <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
+                </svg>
               </span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
@@ -124,7 +99,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4 tracking-wide shadow-sm">
               Our Foundations
@@ -135,13 +110,13 @@ export default function About() {
                 Values
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl text-lg">
               These principles guide every interaction and treatment plan at Surya Kiran.
             </p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
+            {CORE_VALUES.map((value, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -150,13 +125,13 @@ export default function About() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-primary-100 group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-primary-50 group-hover:bg-primary-100 flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-primary-50 group-hover:bg-primary-100 flex items-center justify-center mb-6 transition-colors duration-300">
                   <value.icon className="w-8 h-8 text-primary-600 group-hover:text-primary-700" />
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3 text-center">
+                <h3 className="font-heading font-bold text-xl text-foreground mb-3 text-left">
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground text-center leading-relaxed font-medium text-sm">
+                <p className="text-muted-foreground text-left leading-relaxed font-medium text-sm">
                   {value.description}
                 </p>
               </motion.div>
@@ -230,7 +205,7 @@ export default function About() {
                 {/* Vertical Line */}
                 <div className="absolute left-[21px] top-2 bottom-4 w-0.5 bg-primary-300" />
 
-                {milestones.map((milestone, index) => (
+                {MILESTONES.map((milestone, index) => (
                   <div key={index} className="relative flex gap-6 pb-10 last:pb-0 group">
                     <div className="relative z-10 flex-shrink-0">
                       <div className="w-3 h-3 rounded-full bg-primary-500 border-2 border-white ring-4 ring-primary-100 mt-2 group-hover:scale-125 transition-transform duration-300 shadow-md" />

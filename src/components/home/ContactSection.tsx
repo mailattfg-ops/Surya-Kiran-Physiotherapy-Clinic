@@ -11,6 +11,7 @@ import { toast } from "sonner";
 
 import { services as servicesData } from "@/data/services";
 import { conditions as conditionsData } from "@/data/conditions";
+import { CONTACT_INFO, OPENING_HOURS } from "@/data/constants";
 
 const contactSchema = z.object({
     name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -29,7 +30,7 @@ const treatmentOptions = [
 // Remove duplicates if any
 const uniqueTreatmentOptions = Array.from(new Set(treatmentOptions));
 
-const WHATSAPP_NUMBER = "919048030977";
+const WHATSAPP_NUMBER = CONTACT_INFO.whatsappNumber;
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({
@@ -50,10 +51,15 @@ export default function ContactSection() {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.hash.includes("contact") || location.search) {
-            const params = new URLSearchParams(location.search);
-            const serviceParam = params.get("service");
+        const hash = location.hash;
+        const search = location.search;
 
+        // Parse params from both search and hash (to handle /#contact?service=...)
+        const searchParams = new URLSearchParams(search);
+        const hashParams = new URLSearchParams(hash.includes('?') ? hash.split('?')[1] : '');
+        const serviceParam = searchParams.get("service") || hashParams.get("service");
+
+        if (hash.includes("contact") || serviceParam) {
             if (serviceParam) {
                 // Check if the service is in our predefined list
                 const isPredefined = uniqueTreatmentOptions.includes(serviceParam);
@@ -63,7 +69,7 @@ export default function ContactSection() {
                         ...prev,
                         service: serviceParam,
                         message: (serviceParam === "Ladies Fitness Center" || serviceParam === "Suryakanthi Naturals")
-                            ? `I am interested in learning more about ${serviceParam}.`
+                            ? `I'm interested in learning more about the services offered at ${serviceParam}. Please provide me with more details.`
                             : prev.message
                     }));
                 } else {
@@ -75,9 +81,19 @@ export default function ContactSection() {
                         setFormData(prev => ({
                             ...prev,
                             service: "General Consultation",
-                            message: `I am interested in treatment for: ${serviceParam}.`
+                            message: `I'm interested in treatment for: ${serviceParam}.`
                         }));
                     }
+                }
+            }
+
+            // Explicitly scroll to contact section if hash is present
+            if (hash.includes("contact")) {
+                const element = document.getElementById("contact");
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 100);
                 }
             }
         }
@@ -275,7 +291,7 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
                                         <div>
                                             <h4 className="font-heading font-semibold text-foreground mb-0.5">Our Location</h4>
                                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                                Surya Kiran Physiotherapy, Pallimukku,<br /> Kadakkal, Kollam - 691536
+                                                {CONTACT_INFO.addressLine1}<br /> {CONTACT_INFO.addressLine2}
                                             </p>
                                         </div>
                                     </div>
@@ -288,8 +304,8 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
                                         </div>
                                         <div>
                                             <h4 className="font-heading font-semibold text-foreground mb-0.5">Phone</h4>
-                                            <a href="tel:+919048030977" className="text-muted-foreground text-sm hover:text-primary-600 transition-colors block">
-                                                +91 90480 30977
+                                            <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-muted-foreground text-sm hover:text-primary-600 transition-colors block">
+                                                {CONTACT_INFO.phone}
                                             </a>
                                         </div>
                                     </div>
@@ -302,14 +318,12 @@ ${formData.message ? `Message: ${formData.message}` : ""}`;
                                         </div>
                                         <div className="flex-1">
                                             <h4 className="font-heading font-semibold text-foreground mb-0.5">Hours</h4>
-                                            <div className="flex justify-between text-sm text-muted-foreground mb-1">
-                                                <span>Mon - Sat</span>
-                                                <span className="font-medium text-foreground">8:00 AM - 6:00 PM</span>
-                                            </div>
-                                            <div className="flex justify-between text-sm text-muted-foreground">
-                                                <span>Sunday</span>
-                                                <span className="font-medium text-destructive">Closed</span>
-                                            </div>
+                                            {OPENING_HOURS.map((oh, idx) => (
+                                                <div key={idx} className={`flex justify-between text-sm text-muted-foreground ${idx === 0 ? 'mb-1' : ''}`}>
+                                                    <span>{oh.days}</span>
+                                                    <span className={`font-medium ${oh.isClosed ? 'text-destructive' : 'text-foreground'}`}>{oh.hours}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>

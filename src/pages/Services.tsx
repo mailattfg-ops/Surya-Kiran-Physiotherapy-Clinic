@@ -1,19 +1,17 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Stethoscope, Check, Activity } from "lucide-react";
 import { useState, useEffect } from "react";
-import InquiryModal from "@/components/home/InquiryModal";
 import DetailedServiceModal from "@/components/services/DetailedServiceModal";
 import DetailedConditionModal from "@/components/services/DetailedConditionModal";
+import SEO from "@/components/layout/SEO";
 
 import { useLocation } from "react-router-dom";
 import { services } from "@/data/services";
 import { conditions } from "@/data/conditions";
+import { CONTACT_INFO } from "@/data/constants";
 
 export default function Services() {
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState("");
   const [selectedServiceData, setSelectedServiceData] = useState<any>(null);
   const [selectedConditionData, setSelectedConditionData] = useState<any>(null);
   const [activeConditionCategory, setActiveConditionCategory] = useState("All");
@@ -63,12 +61,16 @@ export default function Services() {
   }, [location, services, conditions]);
 
   const handleEnquire = (serviceName: string) => {
-    setSelectedService(serviceName);
-    setIsInquiryOpen(true);
+    const message = encodeURIComponent(`Hello, I would like to enquire about ${serviceName} at Surya Kiran Physiotherapy Clinic.`);
+    window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${message}`, "_blank");
   };
 
   return (
     <Layout>
+      <SEO
+        title="Our Services | Comprehensive Physiotherapy Care"
+        description="Explore our range of specialized physiotherapy services, including orthopedic, pediatric, geriatric, and neurological rehabilitation."
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-8 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-100/40 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
@@ -295,11 +297,6 @@ export default function Services() {
         }}
       />
 
-      <InquiryModal
-        isOpen={isInquiryOpen}
-        onClose={() => setIsInquiryOpen(false)}
-        initialService={selectedService}
-      />
     </Layout >
   );
 }

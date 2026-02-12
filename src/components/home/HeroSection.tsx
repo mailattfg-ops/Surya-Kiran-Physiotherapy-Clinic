@@ -56,7 +56,7 @@ export default function HeroSection() {
             </motion.h2>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-5 font-heading tracking-tight drop-shadow-sm">
-              Suryakiran <br />
+              suryakiran <br />
               <span className="text-primary-500">
                 PHYSIOTHERAPY
               </span>

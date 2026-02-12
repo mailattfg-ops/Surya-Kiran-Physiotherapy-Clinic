@@ -1,44 +1,7 @@
 import { motion } from "framer-motion";
 
 
-const doctors = [
-  {
-    id: 4,
-    name: "Dr. K R Krishna PT",
-    position: "Chief Physiotherapist, BPT, DNT",
-    experience: "22 Years Experience",
-    image: "/images/doctor/doctorFour.webp",
-    ringColor: "border-orange-500",
-    ringBg: "bg-orange-500"
-  },
-  {
-    id: 1,
-    name: "Dr. Reeja John PT",
-    position: "BPT, Physiotherapist",
-    experience: "6 Years Experience",
-    image: "/images/doctor/doctorOne_11zon.webp",
-    ringColor: "border-red-500",
-    ringBg: "bg-red-500"
-  },
-  {
-    id: 2,
-    name: "Dr. M S Jassera Begam PT",
-    position: "BPT",
-    experience: "3 Years Experience",
-    image: "/images/doctor/doctorTwo_11zon.webp",
-    ringColor: "border-blue-500",
-    ringBg: "bg-blue-500"
-  },
-  {
-    id: 3,
-    name: "Dr. J. S. Evangeline Nissy PT",
-    position: "BPT, Physiotherapist",
-    experience: "2.5 Years Experience",
-    image: "/images/doctor/doctorThree.webp",
-    ringColor: "border-green-500",
-    ringBg: "bg-green-500"
-  }
-];
+import { DOCTORS } from "@/data/constants";
 
 export default function DoctorsSection() {
   return (
@@ -74,7 +37,7 @@ export default function DoctorsSection() {
 
         {/* Doctors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {doctors.map((doctor, index) => (
+          {DOCTORS.map((doctor, index) => (
             <motion.div
               key={doctor.id}
               initial={{ opacity: 0, y: -50 }}

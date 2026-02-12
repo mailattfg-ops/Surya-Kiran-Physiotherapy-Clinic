@@ -61,7 +61,7 @@ export default function WhyChooseUsSection() {
             <span className="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-bold tracking-wider uppercase mb-4 shadow-sm">
               Why Choose Us
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+            <h2 className="font-heading text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
               Redefining Care for <br />
               <span className="text-primary-500">Better Living</span>
             </h2>

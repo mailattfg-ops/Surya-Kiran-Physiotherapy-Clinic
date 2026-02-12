@@ -48,7 +48,7 @@ export default function DetailedServiceModal({
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col md:flex-row"
+                        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto md:overflow-hidden flex flex-col md:flex-row"
                         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
                     >
                         {/* Close Button */}
@@ -86,7 +86,7 @@ export default function DetailedServiceModal({
                         </div>
 
                         {/* Right Side: Detailed Details */}
-                        <div className="md:w-7/12 p-8 md:p-10 flex flex-col overflow-y-auto bg-white">
+                        <div className="md:w-7/12 p-8 md:p-10 flex flex-col md:overflow-y-auto bg-white">
                             <div className="flex-1 space-y-8">
                                 {/* Benefits Section */}
                                 <div>

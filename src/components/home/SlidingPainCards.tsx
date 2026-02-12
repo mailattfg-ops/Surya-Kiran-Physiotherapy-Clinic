@@ -54,12 +54,12 @@ export default function SlidingPainCards() {
             <span className="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-bold tracking-wider uppercase mb-4 shadow-sm">
               Our Expertise
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+            <h2 className="font-heading text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
               Specialized Care for <br />
               <span className="text-primary-500">Faster Recovery</span>
             </h2>
             <p className="text-muted-foreground text-lg italic">
-              "Back to life-" with targeted therapies tailored for your unique needs.
+              "Back to life" with targeted therapies tailored for your unique needs.
             </p>
           </motion.div>
 

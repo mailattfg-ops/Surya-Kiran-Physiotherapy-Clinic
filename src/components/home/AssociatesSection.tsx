@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Dumbbell, Leaf, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const associates = [
@@ -7,19 +7,21 @@ const associates = [
         title: "Ladies Fitness Center",
         subtitle: "Empowering Women's Health",
         description: "A premier destination designed exclusively for women, offering personalized fitness programs, modern equipment, and a supportive environment to help you reach your peak wellness.",
-        icon: Dumbbell,
+        brandImage: "/images/fitness.png",
         color: "text-rose-600",
         bgColor: "bg-rose-50",
-        borderColor: "border-rose-100"
+        borderColor: "border-rose-100",
+        imageAlt: "Ladies Fitness Center Poster"
     },
     {
         title: "Suryakanthi Naturals",
         subtitle: "Healthy Food Store",
         description: "Bringing nature's bounty to your table. We offer a curated selection of organic, natural, and wholesome food products to support your journey towards a healthier lifestyle.",
-        icon: Leaf,
+        brandImage: "/images/suryakanthilogo.png",
         color: "text-emerald-600",
         bgColor: "bg-emerald-50",
-        borderColor: "border-emerald-100"
+        borderColor: "border-emerald-100",
+        imageAlt: "Suryakanthi Naturals Logo"
     }
 ];
 
@@ -45,7 +47,7 @@ export default function AssociatesSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 font-heading"
+                        className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 font-heading"
                     >
                         Our <span className="text-primary-500">Associates</span>
                     </motion.h2>
@@ -68,17 +70,28 @@ export default function AssociatesSection() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.5 }}
-                            className="group relative bg-white rounded-[2.5rem] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden"
+                            className="group relative bg-white rounded-[2.5rem] p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden flex flex-col h-full"
                         >
                             {/* Card Background Pattern */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-[5rem] -z-0 transition-all duration-500 group-hover:w-40 group-hover:h-40" />
 
-                            <div className="relative z-10">
-                                <div className={`w-20 h-20 rounded-2xl ${associate.bgColor} ${associate.color} flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 transition-transform duration-500`}>
-                                    <associate.icon className="w-10 h-10" />
+                            <div className="relative z-10 flex flex-col h-full">
+                                <div className="mb-8">
+                                    {associate.brandImage && (
+                                        <div className="w-full overflow-hidden rounded-2xl border border-gray-100 shadow-sm bg-white p-3 inline-flex items-center justify-center min-h-[140px]">
+                                            <img
+                                                src={associate.brandImage}
+                                                alt={associate.imageAlt}
+                                                className={`object-contain transition-transform duration-700 group-hover:scale-105 ${associate.title.includes("Fitness")
+                                                    ? "h-28 md:h-24 w-auto"
+                                                    : "h-24 md:h-20 w-auto"
+                                                    }`}
+                                            />
+                                        </div>
+                                    )}
                                 </div>
 
-                                <div className="mb-6">
+                                <div className="mb-4">
                                     <h3 className="text-2xl font-bold text-gray-900 mb-2 font-heading group-hover:text-primary-600 transition-colors">
                                         {associate.title}
                                     </h3>
@@ -87,13 +100,13 @@ export default function AssociatesSection() {
                                     </p>
                                 </div>
 
-                                <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                                <p className="text-gray-600 leading-relaxed mb-8 text-lg flex-grow">
                                     {associate.description}
                                 </p>
 
                                 <Link
-                                    to={`/#contact?service=${encodeURIComponent(associate.title)}`}
-                                    className="inline-flex items-center gap-2 text-primary-600 font-bold group/btn cursor-pointer"
+                                    to={`/?service=${encodeURIComponent(associate.title)}#contact`}
+                                    className="inline-flex items-center gap-2 text-primary-600 font-bold group/btn cursor-pointer mt-auto"
                                 >
                                     <span>Learn More</span>
                                     <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-2" />

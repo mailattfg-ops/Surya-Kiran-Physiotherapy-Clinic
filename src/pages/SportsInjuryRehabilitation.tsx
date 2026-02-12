@@ -3,10 +3,15 @@ import { motion } from "framer-motion";
 import { ArrowRight, Activity, Target, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import SEO from "@/components/layout/SEO";
 
 export default function SportsInjuryRehabilitation() {
   return (
     <Layout>
+      <SEO
+        title="Sports Injury Rehabilitation | Get Back to Peak Performance"
+        description="Recover faster and stronger from sports injuries with our specialized rehabilitation programs designed for athletes of all levels."
+      />
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4">
@@ -20,7 +25,7 @@ export default function SportsInjuryRehabilitation() {
               Sports Injury Rehabilitation
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Specialized recovery programs for athletes to restore strength, flexibility, 
+              Specialized recovery programs for athletes to restore strength, flexibility,
               and peak performance after sports-related injuries.
             </p>
             <Button asChild className="gradient-accent text-accent-foreground px-8 py-4 rounded-lg">

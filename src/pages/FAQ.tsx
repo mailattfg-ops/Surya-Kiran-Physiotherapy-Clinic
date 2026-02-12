@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { MessageCircle, HelpCircle } from "lucide-react";
+import SEO from "@/components/layout/SEO";
 
 const faqs = [
   {
@@ -47,18 +48,23 @@ const faqs = [
   },
 ];
 
-const WHATSAPP_NUMBER = "919048030977";
+import { CONTACT_INFO } from "@/data/constants";
+
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
 );
 
 export default function FAQ() {
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`, "_blank");
+    window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${WHATSAPP_MESSAGE}`, "_blank");
   };
 
   return (
     <Layout>
+      <SEO
+        title="FAQ | Physiotherapy Questions Answered"
+        description="Find answers to common questions about physiotherapy, appointments, insurance, and treatment at Surya Kiran Clinic."
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/40 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />

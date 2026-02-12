@@ -48,7 +48,7 @@ export default function DetailedConditionModal({
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col md:flex-row"
+                        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto md:overflow-hidden flex flex-col md:flex-row"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}
@@ -60,7 +60,7 @@ export default function DetailedConditionModal({
                         </button>
 
                         {/* Left Side: Header & Primary Info */}
-                        <div className="md:w-5/12 bg-accent-50 relative overflow-hidden flex flex-col p-8 md:p-10 text-primary-950">
+                        <div className="hidden md:flex md:w-5/12 bg-accent-50 relative overflow-hidden flex-col p-8 md:p-10 text-primary-950">
                             <div className="relative z-20 flex-1">
                                 {condition.icon && (
                                     <div className="w-16 h-16 rounded-2xl bg-primary-100 shadow-sm flex items-center justify-center mb-6">
@@ -92,7 +92,7 @@ export default function DetailedConditionModal({
                         </div>
 
                         {/* Right Side: Detailed Details */}
-                        <div className="md:w-7/12 p-8 md:p-10 flex flex-col overflow-y-auto bg-white">
+                        <div className="md:w-7/12 p-8 md:p-10 flex flex-col md:overflow-y-auto bg-white">
                             <div className="flex-1 space-y-8">
                                 {/* Symptoms Section */}
                                 <div>

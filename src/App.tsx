@@ -7,11 +7,9 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import SportsInjuryRehabilitation from "./pages/SportsInjuryRehabilitation";
 import "./index.css";
-import Doctor from "./pages/Doctor";
 import Services from "./pages/Services";
 import Conditions from "./pages/Conditions";
 import FAQ from "./pages/FAQ";
-import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -30,30 +28,33 @@ const ScrollToTop = () => {
   return null;
 };
 
+import { HelmetProvider } from "react-helmet-async";
+
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/sports-injury-rehabilitation" element={<SportsInjuryRehabilitation />} />
-          <Route path="/doctor" element={<Doctor />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/conditions" element={<Conditions />} />
-          <Route path="/faq" element={<FAQ />} />
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/sports-injury-rehabilitation" element={<SportsInjuryRehabilitation />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/conditions" element={<Conditions />} />
+            <Route path="/faq" element={<FAQ />} />
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

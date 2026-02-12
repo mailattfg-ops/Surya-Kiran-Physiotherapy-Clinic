@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_NUMBER = "919048030977";
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
-);
+import { CONTACT_INFO } from "@/data/constants";
 
 export default function WhatsAppButton() {
   const handleClick = () => {
     window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`,
+      `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent("Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic.")}`,
       "_blank"
     );
   };

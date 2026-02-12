@@ -1,22 +1,26 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/layout/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 import { conditions } from "@/data/conditions";
-
-const WHATSAPP_NUMBER = "919048030977";
+import { CONTACT_INFO } from "@/data/constants";
 
 export default function Conditions() {
   const handleEnquire = (conditionName: string) => {
     const message = encodeURIComponent(
       `Hello, I would like to enquire about treatment for ${conditionName} at Surya Kiran Physiotherapy Clinic.`
     );
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${message}`, "_blank");
   };
 
   return (
     <Layout>
+      <SEO
+        title="Conditions We Treat | Specialized Rehabilitation"
+        description="Expert treatment for back pain, neck pain, arthritis, sports injuries, and neurological conditions in Kadakkal, Kerala."
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-16 gradient-hero">
         <div className="container mx-auto px-4">
@@ -33,7 +37,7 @@ export default function Conditions() {
               <span className="text-primary-700">Your Condition</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We specialize in treating a wide range of conditions. Learn about how 
+              We specialize in treating a wide range of conditions. Learn about how
               physiotherapy can help your specific situation and when to seek treatment.
             </p>
           </motion.div>

@@ -8,6 +8,8 @@ const services = allServices.slice(0, 6).map(s => ({
   id: s.id
 }));
 
+import { CONTACT_INFO, OPENING_HOURS } from "@/data/constants";
+
 const quickLinks = [
   { name: "About Us", path: "/about" },
   { name: "Our Services", path: "/services" },
@@ -115,7 +117,7 @@ export default function Footer() {
                   <MapPin className="w-5 h-5 text-primary-400" />
                 </div>
                 <span className="text-slate-400 text-sm leading-relaxed">
-                  Suryakiran Physiotherapy<br />Pallimukku, Kadakkal, <br />Kollam - 691536
+                  {CONTACT_INFO.addressLine1}<br />{CONTACT_INFO.addressLine2}
                 </span>
               </li>
               <li className="flex gap-4">
@@ -125,10 +127,10 @@ export default function Footer() {
                 <div className="flex flex-col">
                   <span className="text-xs text-slate-500 uppercase font-semibold">Call Us</span>
                   <a
-                    href="tel:+919048030977"
+                    href={`tel:${CONTACT_INFO.phoneRaw}`}
                     className="text-slate-400 hover:text-primary-400 text-sm font-medium transition-colors"
                   >
-                    +91 90480 30977
+                    {CONTACT_INFO.phone}
                   </a>
                 </div>
               </li>
@@ -139,10 +141,10 @@ export default function Footer() {
                 <div className="flex flex-col">
                   <span className="text-xs text-slate-500 uppercase font-semibold">Email Us</span>
                   <a
-                    href="mailto:wellness.kdl@gmail.com"
+                    href={`mailto:${CONTACT_INFO.email}`}
                     className="text-slate-400 hover:text-primary-400 text-sm font-medium transition-colors"
                   >
-                    wellness.kdl@gmail.com
+                    {CONTACT_INFO.email}
                   </a>
                 </div>
               </li>
@@ -153,8 +155,11 @@ export default function Footer() {
                 <div className="flex flex-col">
                   <span className="text-xs text-slate-500 uppercase font-semibold">Working Hours</span>
                   <span className="text-slate-400 text-sm">
-                    Mon - Sat: 8:00 AM - 6:00 PM<br />
-                    Sunday: Closed
+                    {OPENING_HOURS.map((oh, idx) => (
+                      <span key={idx}>
+                        {oh.days}: {oh.hours}<br />
+                      </span>
+                    ))}
                   </span>
                 </div>
               </li>
