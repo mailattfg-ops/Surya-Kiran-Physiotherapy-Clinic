@@ -5,7 +5,7 @@ export const CONTACT_INFO = {
   phoneRaw: "+919048030977",
   email: "wellness.kdl@gmail.com",
   address: "Surya Kiran Physiotherapy, Pallimukku, Kadakkal, Kollam - 691536",
-  addressLine1: "Surya Kiran Physiotherapy, Pallimukku,",
+  addressLine1: "SuryaKiran Physiotherapy, Pallimukku,",
   addressLine2: "Kadakkal, Kollam - 691536",
   whatsappNumber: "919048030977",
 };

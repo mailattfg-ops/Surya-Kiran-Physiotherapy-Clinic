@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,7 +83,7 @@ export default function Header() {
                 <h1 className={`font-heading font-bold text-xl leading-tight transition-colors ${!isScrolled && isHome ? "text-white" : "text-black"}`}>
                   suryakiran
                 </h1>
-                <p className={`text-xs font-medium tracking-wide transition-colors ${!isScrolled && isHome ? "text-white/80" : "text-muted-foreground/80"}`}>
+                <p className={`text-[13px] font-medium tracking-wide transition-colors ${!isScrolled && isHome ? "text-white/80" : "text-muted-foreground/80"}`}>
                   PHYSIOTHERAPY
                 </p>
               </div>
@@ -120,54 +121,93 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md hover:bg-primary-100 transition-colors"
-              aria-label="Toggle menu"
+              onClick={() => setIsMobileMenuOpen(true)}
+              className={`lg:hidden p-2 rounded-md transition-colors ${!isScrolled && isHome
+                ? "text-white hover:bg-white/10"
+                : "text-primary-700 hover:bg-primary-50"
+                }`}
+              aria-label="Open menu"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-primary-700" />
-              ) : (
-                <Menu className="w-6 h-6 text-primary-700" />
-              )}
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-t border-border"
-          >
-            <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
-              {navLinks.map((link) => (
+      {/* Mobile Menu Overlay - Portal to Body */}
+      {createPortal(
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[100] bg-background flex flex-col"
+            >
+              {/* Mobile Menu Header */}
+              <div className="container mx-auto px-4 py-4 flex items-center justify-between border-b border-border/50">
+                {/* Logo */}
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={(e) => handleNavClick(e, link.path)}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === link.path && !link.path.includes("#")
-                    ? "text-primary-700 bg-primary-100"
-                    : "text-foreground/80 hover:text-primary-700 hover:bg-primary-100/50"
-                    }`}
+                  to="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-3"
                 >
-                  {link.name}
+                  <div className="h-12 w-auto flex-shrink-0">
+                    <img src="/logo.jpeg" alt="Surya Kiran Logo" className="h-full w-auto object-contain" />
+                  </div>
+                  <div>
+                    <h1 className="font-heading font-bold text-lg leading-tight text-black">
+                      suryakiran
+                    </h1>
+                    <p className="text-xs font-medium tracking-wide text-muted-foreground/80">
+                      PHYSIOTHERAPY
+                    </p>
+                  </div>
                 </Link>
-              ))}
-              <a
-                href={`tel:${CONTACT_INFO.phoneRaw}`}
-                className="mt-4 w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white rounded-lg font-bold uppercase tracking-wider h-12 shadow-lg transition-transform active:scale-95"
-              >
-                <Phone className="w-5 h-5" />
-                <span>{CONTACT_INFO.phone}</span>
-              </a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-7 h-7 text-black" />
+                </button>
+              </div>
+
+              {/* Mobile Menu Links */}
+              <nav className="container mx-auto px-4 py-8 flex flex-col gap-4 overflow-y-auto">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    className={`px-4 py-4 rounded-xl text-lg font-bold transition-all ${location.pathname === link.path && !link.path.includes("#")
+                      ? "text-primary-700 bg-primary-50"
+                      : "text-foreground/80 hover:text-primary-700 hover:bg-gray-50"
+                      }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                <div className="mt-4 pt-4 border-t border-border/50">
+                  <a
+                    href={`tel:${CONTACT_INFO.phoneRaw}`}
+                    className="w-full flex items-center justify-center gap-3 bg-black hover:bg-black/90 text-white rounded-xl font-bold uppercase tracking-wider h-14 shadow-lg transition-transform active:scale-95"
+                  >
+                    <Phone className="w-5 h-5" />
+                    <span>{CONTACT_INFO.phone}</span>
+                  </a>
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
 
     </header>
   );

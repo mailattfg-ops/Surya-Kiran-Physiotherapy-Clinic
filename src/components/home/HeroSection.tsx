@@ -16,13 +16,13 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[100dvh] lg:h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-black">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 xl:left-1/2 xl:w-1/2">
         <img
-          src="/images/pain/physioapplication.jpg"
+          src="/images/suryakiran_hero_kerala_physio_final_1770957071990.png"
           alt="Suryakiran Physiotherapy Clinic"
-          className="w-full h-full object-cover object-center lg:object-[center_15%]"
+          className="w-full h-full object-cover xl:object-cover xl:object-top"
         />
 
         {/* Gradient Overlay - Softer, more localized for desktop */}
@@ -46,21 +46,26 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl lg:p-0"
           >
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="font-serif italic text-2xl md:text-2xl lg:text-4xl text-primary-500 mb-2 tracking-wide lg:mb-3 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
-            >
-              Back to life
-            </motion.h2>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-5 font-heading tracking-tight drop-shadow-sm">
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-2 font-heading tracking-tight drop-shadow-sm">
               suryakiran <br />
               <span className="text-primary-500">
                 PHYSIOTHERAPY
               </span>
             </h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="h-[2px] w-12 bg-primary-500" />
+              <span className="font-serif italic text-xl md:text-2xl text-primary-400 font-bold tracking-widest uppercase text-white">
+                Back to life
+              </span>
+            </motion.div>
 
             <p className="hidden lg:block text-base md:text-lg lg:text-xl text-gray-300 mb-7 leading-relaxed max-w-lg font-medium">
               The Institute of Physical Medicine. <br />
