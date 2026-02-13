@@ -14,7 +14,7 @@ export const services = [
     ],
     conditions: ["Myofascial pain", "Trigger points", "Muscle strains", "Chronic pain"],
     category: "Manual Therapy",
-    image: "/images/pain/Dry-Needling_11zon.jpg"
+    image: "/images/pain/Dry-Needling_11zon.webp"
   },
   {
     id: "kinesiology-taping",
@@ -44,7 +44,7 @@ export const services = [
     ],
     conditions: ["Back pain", "Neck stiffness", "Muscle tension", "Respiratory issues"],
     category: "Manual Therapy",
-    image: "/images/pain/What-Is-Cupping-Therapy-and-Does-It-Work_11zon.jpg"
+    image: "/images/pain/What-Is-Cupping-Therapy-and-Does-It-Work_11zon.webp"
   },
   {
     id: "myofascial-release",
@@ -59,7 +59,7 @@ export const services = [
     ],
     conditions: ["Myofascial pain syndrome", "Fibromyalgia", "Chronic fatigue", "Stiffness"],
     category: "Manual Therapy",
-    image: "/images/pain/Myofascial-Release-The-Deep-Tissue-Massage-01_11zon.jpg"
+    image: "/images/pain/Myofascial-Release-The-Deep-Tissue-Massage.webp"
   },
   {
     id: "spinal-manipulation",
@@ -74,7 +74,7 @@ export const services = [
     ],
     conditions: ["Back pain", "Neck pain", "Joint restrictions", "Headaches"],
     category: "Manual Therapy",
-    image: "/images/pain/Back Pain Treatment.png"
+    image: "/images/pain/BackTreament.webp"
   },
   {
     id: "trigger-point-release",
@@ -89,7 +89,7 @@ export const services = [
     ],
     conditions: ["Chronic pain", "Muscle knots", "Tension headaches", "Repetitive strain"],
     category: "Manual Therapy",
-    image: "/images/pain/depositphotos_157562204-stock-photo-female-therapist-doing-osteopathic-spine_11zon.jpg"
+    image: "/images/pain/depositphotos_157562204-stock-photo-female-therapist-doing-osteopathic-spine_11zon.webp"
   },
   {
     id: "sports-physiotherapy",

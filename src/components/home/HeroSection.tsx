@@ -20,7 +20,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0 xl:left-1/2 xl:w-1/2">
         <img
-          src="/images/suryakiran_hero_kerala_physio_final_1770957071990.png"
+          src="/images/SuryaHero.webp"
           alt="Suryakiran Physiotherapy Clinic"
           className="w-full h-full object-cover xl:object-cover xl:object-top"
         />
@@ -49,7 +49,7 @@ export default function HeroSection() {
 
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-2 font-heading tracking-tight drop-shadow-sm">
-              suryakiran <br />
+              Suryakiran <br />
               <span className="text-primary-500">
                 PHYSIOTHERAPY
               </span>
@@ -100,6 +100,7 @@ export default function HeroSection() {
                   bg-white/5 hover:bg-white/10 backdrop-blur-sm
                   rounded-xl transition-all duration-300
                   font-bold uppercase tracking-wider
+                  hover:text-white
                 "
               >
                 Explore Services

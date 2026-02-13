@@ -5,7 +5,7 @@ import { CONTACT_INFO } from "@/data/constants";
 export default function WhatsAppButton() {
   const handleClick = () => {
     window.open(
-      `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent("Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic.")}`,
+      `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent("Hello, I would like to enquire about physiotherapy services at Suryakiran Clinic.")}`,
       "_blank"
     );
   };

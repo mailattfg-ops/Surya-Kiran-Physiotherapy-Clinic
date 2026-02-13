@@ -10,7 +10,7 @@ import { CONTACT_INFO } from "@/data/constants";
 export default function Conditions() {
   const handleEnquire = (conditionName: string) => {
     const message = encodeURIComponent(
-      `Hello, I would like to enquire about treatment for ${conditionName} at Surya Kiran Physiotherapy Clinic.`
+      `Hello, I would like to enquire about treatment for ${conditionName} at Suryakiran Physiotherapy Clinic.`
     );
     window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${message}`, "_blank");
   };

@@ -61,7 +61,7 @@ export default function Services() {
   }, [location, services, conditions]);
 
   const handleEnquire = (serviceName: string) => {
-    const message = encodeURIComponent(`Hello, I would like to enquire about ${serviceName} at Surya Kiran Physiotherapy Clinic.`);
+    const message = encodeURIComponent(`Hello, I would like to enquire about ${serviceName} at Suryakiran Physiotherapy Clinic.`);
     window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${message}`, "_blank");
   };
 
@@ -84,8 +84,8 @@ export default function Services() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6 tracking-wide shadow-sm">
               Our Services
             </span>
-            <h1 className="font-heading text-2xl sm:text-4xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
-              Comprehensive <br />
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-6xl font-extrabold text-foreground mb-6 flex flex-col gap-2">
+              <span>Comprehensive</span>
               <span className="text-primary-500 relative inline-block">
                 <span className="hidden sm:inline">Physiotherapy Care</span>
                 <span className="sm:hidden">Physio Care</span>

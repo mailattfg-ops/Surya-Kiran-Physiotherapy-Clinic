@@ -76,7 +76,7 @@ export default function Header() {
           <div className="flex items-center gap-8 md:gap-12">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="h-14 w-auto flex-shrink-0">
+              <div className="h-16 w-auto flex-shrink-0">
                 <img src="/logo.jpeg" alt="Surya Kiran Logo" className="h-full w-auto object-contain shadow-sm" />
               </div>
               <div className="hidden sm:block">
@@ -159,7 +159,7 @@ export default function Header() {
                   </div>
                   <div>
                     <h1 className="font-heading font-bold text-lg leading-tight text-black">
-                      suryakiran
+                      Suryakiran
                     </h1>
                     <p className="text-xs font-medium tracking-wide text-muted-foreground/80">
                       PHYSIOTHERAPY

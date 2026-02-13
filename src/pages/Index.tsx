@@ -14,8 +14,8 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="Surya Kiran Physiotherapy | Best Physiotherapy Clinic in Kadakkal"
-        description="Regain your mobility with Surya Kiran Physiotherapy Clinic. Expert care for back pain, sports injuries, and post-surgical recovery in Kadakkal, Kerala."
+        title="Suryakiran Physiotherapy | Best Physiotherapy Clinic in Kadakkal"
+        description="Regain your mobility with Suryakiran Physiotherapy Clinic. Expert care for back pain, sports injuries, and post-surgical recovery in Kadakkal, Kerala."
       />
       <HeroSection />
       <SlidingPainCards />

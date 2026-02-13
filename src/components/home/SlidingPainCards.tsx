@@ -19,14 +19,13 @@ const iconMap: Record<string, any> = {
 };
 
 const imageMap: Record<string, string> = {
-  "back-neck-shoulder-pain": "/images/pain/Back Pain Treatment.png",
-  "sports-injuries": "/images/pain/Sports Injury Rehabilitation.png",
+  "back-neck-shoulder-pain": "/images/pain/BackTreament.webp",
+  "sports-injuries": "/images/pain/Sports Injury Rehabilitation.webp",
   "work-related-injuries": "/images/pain/work_related_injuries.webp",
   "soft-tissue-injuries": "/images/pain/soft_tissue_injury_women.webp",
-  "myofascial-pain-syndrome": "/images/pain/Myofascial-Release-The-Deep-Tissue-Massage-01_11zon.jpg",
+  "myofascial-pain-syndrome": "/images/pain/Myofascial-Release-The-Deep-Tissue-Massage.webp",
   "sciatica-disc-diseases": "/images/pain/Sciatica & Disc Diseases.webp",
   "repetitive-strain-injuries": "/images/pain/Sports Physiotherapy.webp",
-  "arthritic-conditions": "/images/pain/Geriatric Physiotherapy .png",
 };
 
 export default function SlidingPainCards() {

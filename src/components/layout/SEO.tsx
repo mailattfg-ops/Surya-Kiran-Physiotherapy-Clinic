@@ -9,13 +9,13 @@ interface SEOProps {
 }
 
 export default function SEO({
-    title = "Surya Kiran Physiotherapy | Expert Care in Kadakkal",
-    description = "Restore your mobility and quality of life with Surya Kiran Physiotherapy. Expert, women-run clinic in Kadakkal specializing in orthopedic, pediatric, and sports rehabilitation.",
+    title = "Suryakiran Physiotherapy | Expert Care in Kadakkal",
+    description = "Restore your mobility and quality of life with Suryakiran Physiotherapy. Expert, women-run clinic in Kadakkal specializing in orthopedic, pediatric, and sports rehabilitation.",
     keywords = "physiotherapy kadakkal, physical therapy kollam, orthopedic rehabilitation, pain management, residential rehab kerala",
-    canonical = "https://suryakiranpathways.com",
+    canonical = "https://Suryakiranpathways.com",
     ogImage = "/og-image.jpg"
 }: SEOProps) {
-    const fullTitle = title.includes("Surya Kiran") ? title : `${title} | Surya Kiran Physiotherapy`;
+    const fullTitle = title.includes("Suryakiran") ? title : `${title} | Suryakiran Physiotherapy`;
 
     return (
         <Helmet>

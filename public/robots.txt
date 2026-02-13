@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://suryakiranpathways.com/sitemap.xml
+Sitemap: https://Suryakiranpathways.com/sitemap.xml

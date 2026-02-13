@@ -43,7 +43,7 @@ const faqs = [
     answer: "Many health insurance policies cover physiotherapy treatments. The coverage and reimbursement process varies by insurance provider. We recommend checking with your insurance company about their physiotherapy coverage policy. We can provide all necessary documentation for your claim."
   },
   {
-    question: "What makes Surya Kiran Clinic different?",
+    question: "What makes Suryakiran Clinic different?",
     answer: "With over 10 years of experience and 10000+ patients treated, we combine clinical expertise with genuine compassion. Our personalized treatment approach, modern equipment, hygienic environment, and high success rate set us apart. We focus on not just treating symptoms but addressing root causes for lasting recovery."
   },
 ];
@@ -51,7 +51,7 @@ const faqs = [
 import { CONTACT_INFO } from "@/data/constants";
 
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I would like to enquire about physiotherapy services at Surya Kiran Clinic."
+  "Hello, I would like to enquire about physiotherapy services at Suryakiran Clinic."
 );
 
 export default function FAQ() {
@@ -63,7 +63,7 @@ export default function FAQ() {
     <Layout>
       <SEO
         title="FAQ | Physiotherapy Questions Answered"
-        description="Find answers to common questions about physiotherapy, appointments, insurance, and treatment at Surya Kiran Clinic."
+        description="Find answers to common questions about physiotherapy, appointments, insurance, and treatment at Suryakiran Clinic."
       />
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-background relative overflow-hidden">

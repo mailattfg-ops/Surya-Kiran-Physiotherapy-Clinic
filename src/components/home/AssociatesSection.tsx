@@ -7,7 +7,7 @@ const associates = [
         title: "Ladies Fitness Center",
         subtitle: "Empowering Women's Health",
         description: "A premier destination designed exclusively for women, offering personalized fitness programs, modern equipment, and a supportive environment to help you reach your peak wellness.",
-        brandImage: "/images/fitness.png",
+        brandImage: "/images/fitness.webp",
         color: "text-rose-600",
         bgColor: "bg-rose-50",
         borderColor: "border-rose-100",
@@ -17,7 +17,7 @@ const associates = [
         title: "Suryakanthi Naturals",
         subtitle: "Healthy Food Store",
         description: "Bringing nature's bounty to your table. We offer a curated selection of organic, natural, and wholesome food products to support your journey towards a healthier lifestyle.",
-        brandImage: "/images/suryakanthilogo.png",
+        brandImage: "/images/suryakanthilogo.webp",
         color: "text-emerald-600",
         bgColor: "bg-emerald-50",
         borderColor: "border-emerald-100",
@@ -27,7 +27,7 @@ const associates = [
 
 export default function AssociatesSection() {
     return (
-        <section className="py-24 relative overflow-hidden bg-background">
+        <section className="relative overflow-hidden bg-background">
             {/* Decorative background elements */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-primary-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-100/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />

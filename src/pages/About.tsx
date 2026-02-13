@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Award, Heart, Users, Target, CheckCircle, ArrowRight } from "lucide-react";
 import SEO from "@/components/layout/SEO";
@@ -10,7 +11,7 @@ export default function About() {
     <Layout>
       <SEO
         title="About Us | Our Legacy of Healing"
-        description="Learn about Surya Kiran Physiotherapy's 20-year journey of providing compassionate care and excellence in physiotherapy services in Kerala."
+        description="Learn about Suryakiran Physiotherapy's 20-year journey of providing compassionate care and excellence in physiotherapy services in Kerala."
       />
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-background relative overflow-hidden">
@@ -37,7 +38,7 @@ export default function About() {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              At Surya Kiran Physiotherapy Clinic, we believe everyone deserves to live
+              At Suryakiran Physiotherapy Clinic, we believe everyone deserves to live
               a pain-free, active life. With over 20 years of experience and 10000+ patients
               treated, we're committed to providing exceptional care.
             </p>
@@ -111,7 +112,7 @@ export default function About() {
               </span>
             </h2>
             <p className="text-muted-foreground max-w-2xl text-lg">
-              These principles guide every interaction and treatment plan at Surya Kiran.
+              These principles guide every interaction and treatment plan at Suryakiran.
             </p>
           </motion.div>
 
@@ -179,9 +180,9 @@ export default function About() {
               </div>
 
               <div className="mt-10">
-                <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center gap-2 font-bold text-primary-700 hover:text-primary-800 transition-colors">
+                <Link to="/#contact" className="inline-flex items-center gap-2 font-bold text-primary-700 hover:text-primary-800 transition-colors">
                   Book your first consultation <ArrowRight className="w-5 h-5" />
-                </button>
+                </Link>
               </div>
 
             </motion.div>

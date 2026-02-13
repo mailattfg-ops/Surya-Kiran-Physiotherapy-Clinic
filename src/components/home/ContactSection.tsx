@@ -115,7 +115,7 @@ export default function ContactSection() {
             return;
         }
 
-        const message = `Hello, I would like to book an appointment at Surya Kiran Physiotherapy Clinic.
+        const message = `Hello, I would like to book an appointment at Suryakiran Physiotherapy Clinic.
 
 Name: ${formData.name}
 Phone: ${formData.phone}
