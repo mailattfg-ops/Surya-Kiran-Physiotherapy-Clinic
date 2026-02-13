@@ -182,7 +182,7 @@ export default function TestimonialsSection() {
                           "{testimonial.text}"
                         </p>
                         <div>
-                          <h4 className="font-bold text-lg text-foreground">{testimonial.name}</h4>
+                          <h3 className="font-bold text-lg text-foreground">{testimonial.name}</h3>
                           <p className="text-sm text-primary-600 font-semibold uppercase tracking-wide">{testimonial.role}</p>
                         </div>
                       </div>
@@ -197,25 +197,31 @@ export default function TestimonialsSection() {
           <div className="flex justify-center items-center gap-6 mt-8">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-foreground hover:bg-primary-50 hover:text-primary-600 transition-all hover:scale-110 active:scale-95"
+              aria-label="Previous testimonial"
+              className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-foreground hover:bg-primary-50 hover:text-primary-600 transition-all hover:scale-110 active:scale-95 touch-manipulation"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
 
-            <div className="flex gap-2">
+            <div className="flex gap-3 items-center">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${idx === activeIndex ? "w-8 bg-primary-500" : "w-2 bg-gray-300 hover:bg-primary-300"
-                    }`}
-                />
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                  className={`relative h-2 rounded-full transition-all duration-300 p-2 box-content
+                    ${idx === activeIndex ? "w-8 bg-primary-500" : "w-2 bg-gray-300 hover:bg-primary-300"}
+                  `}
+                >
+                  <span className="sr-only">Testimonial {idx + 1}</span>
+                </button>
               ))}
             </div>
 
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-foreground hover:bg-primary-50 hover:text-primary-600 transition-all hover:scale-110 active:scale-95"
+              aria-label="Next testimonial"
+              className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-foreground hover:bg-primary-50 hover:text-primary-600 transition-all hover:scale-110 active:scale-95 touch-manipulation"
             >
               <ChevronRight className="w-6 h-6" />
             </button>

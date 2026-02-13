@@ -86,6 +86,9 @@ export default function AssociatesSection() {
                                                     ? "h-28 md:h-24 w-auto"
                                                     : "h-24 md:h-20 w-auto"
                                                     }`}
+                                                loading="lazy"
+                                                width="150"
+                                                height="100"
                                             />
                                         </div>
                                     )}
@@ -107,6 +110,7 @@ export default function AssociatesSection() {
                                 <Link
                                     to={`/?service=${encodeURIComponent(associate.title)}#contact`}
                                     className="inline-flex items-center gap-2 text-primary-600 font-bold group/btn cursor-pointer mt-auto"
+                                    aria-label={`Learn more about ${associate.title}`}
                                 >
                                     <span>Learn More</span>
                                     <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-2" />

@@ -84,7 +84,7 @@ export default function Services() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6 tracking-wide shadow-sm">
               Our Services
             </span>
-            <h1 className="font-heading text-2xl sm:text-4xl md:text-6xl font-extrabold text-foreground mb-6 flex flex-col gap-2">
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-6xl font-extrabold text-foreground mb-6 flex flex-col gap-2 items-start">
               <span>Comprehensive</span>
               <span className="text-primary-500 relative inline-block">
                 <span className="hidden sm:inline">Physiotherapy Care</span>
@@ -147,6 +147,7 @@ export default function Services() {
                       src={service.image}
                       alt={service.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center opacity-10">

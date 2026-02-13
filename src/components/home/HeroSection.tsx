@@ -23,6 +23,11 @@ export default function HeroSection() {
           src="/images/SuryaHero.webp"
           alt="Suryakiran Physiotherapy Clinic"
           className="w-full h-full object-cover xl:object-cover xl:object-top"
+          // @ts-ignore
+          fetchpriority="high"
+          loading="eager"
+          width="1920"
+          height="1080"
         />
 
         {/* Gradient Overlay - Softer, more localized for desktop */}
