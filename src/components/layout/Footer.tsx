@@ -176,19 +176,23 @@ export default function Footer() {
               <span className="hidden sm:inline">© {new Date().getFullYear()} Suryakiran Physiotherapy. All rights reserved.</span>
               <span className="sm:hidden text-xs">© {new Date().getFullYear()} Suryakiran Physiotherapy</span>
             </p>
+            <span
+              className="text-slate-400 text-sm transition-colors"
+            >
+              Designed and Developed by <a className="text-primary-300 hover:text-white text-sm transition-colors" href="https://www.thinkforgeglobal.com/" target="_blank" rel="noopener noreferrer">Think Forge Global</a>
+            </span>
             <div className="flex gap-8">
-              <Link
-                to="/privacy"
+              <span
                 className="text-slate-400 hover:text-primary-300 text-sm transition-colors"
               >
                 Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
+              </span>
+
+              <span
                 className="text-slate-400 hover:text-primary-300 text-sm transition-colors"
               >
                 Terms of Service
-              </Link>
+              </span>
             </div>
           </div>
         </div>
